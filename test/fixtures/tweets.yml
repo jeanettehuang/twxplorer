@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  username: MyString
+  created_at: 2013-04-14 17:27:20
+  guid: 
+  lang: MyString
+  time_zone: MyString
+
+two:
+  text: MyString
+  username: MyString
+  created_at: 2013-04-14 17:27:20
+  guid: 
+  lang: MyString
+  time_zone: MyString

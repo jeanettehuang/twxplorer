@@ -1,0 +1,18 @@
+<h1>TweetSuite Alpha</h1>
+<div id="container">
+<ul>
+<% @tweets.each do |tweet| %>
+  <li class="<%=cycle('odd', '')%>">
+    <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
+    <div class="tweet_text_area">
+      <div class="tweet_text">
+        <%= tweet.text %>
+      </div>
+      <div class="tweet_created_at">
+        <%= time_ago_in_words tweet.created_at %> ago
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
+</div>
