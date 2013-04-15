@@ -29,4 +29,8 @@ class Tweet < ActiveRecord::Base
     end
   end
 
+  searchable do
+    text :text, :username
+  end
+
 end

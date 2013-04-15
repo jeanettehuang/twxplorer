@@ -1,3 +1,9 @@
+<%= form_tag '/tweets/index', :method => :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
+<% end %>
 <h1>TweetSuite Alpha</h1>
 <div id="container">
 <ul>
