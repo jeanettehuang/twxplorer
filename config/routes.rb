@@ -1,6 +1,7 @@
 TweetSuite::Application.routes.draw do
   root :to => "tweets#index"
   get "tweets/index"
+  get "searchedtweets/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

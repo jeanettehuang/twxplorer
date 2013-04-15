@@ -8,7 +8,7 @@
 <h1>TweetSuite Alpha</h1>
 <div id="container">
 <ul>
-<% @tweets.each do |tweet| %>
+<% @searchedtweets.each do |tweet| %>
   <li class="<%=cycle('odd', '')%>">
     <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
     <div class="tweet_text_area">
