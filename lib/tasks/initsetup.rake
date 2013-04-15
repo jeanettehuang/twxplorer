@@ -30,5 +30,4 @@ task :loadtweetdb do
        puts "Couldnt insert tweet. Possibly db lock error"
       end
     end
-
 end
