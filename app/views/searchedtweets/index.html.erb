@@ -1,21 +1,27 @@
+<center><h1 style="font-family: Helvetica; font-size: 40px">TweetSuite</h1></center>
+
+<center>
 <%= form_tag '/searchedtweets/index', :method => :get do %>
 	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :name => nil %>
+		<div class="search-button">
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search for Tweets", :name => nil %>
+			</div>
 	</p>
 <% end %>
+</center>
 
-<h1>TweetSuite Alpha</h1>
+
 <div id="container">
 <ul>
 <% @searchedtweets.each do |tweet| %>
-  <li class="<%=cycle('odd', '')%>">
+  <li style="font-family:Helvetica" class="<%=cycle('odd', '')%>">
     <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
-    <div class="tweet_text_area">
+    <div style="font-family:Helvetica" class="tweet_text_area">
       <div class="tweet_text">
         <%= tweet.text %>
       </div>
-      <div class="tweet_created_at">
+      <div style="margin-bottom: 15px" class="tweet_created_at">
         <%= time_ago_in_words tweet.created_at %> ago
       </div>
     </div>
