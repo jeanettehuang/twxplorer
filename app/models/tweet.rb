@@ -33,7 +33,7 @@ class Tweet < ActiveRecord::Base
   end
 
   searchable do
-    text :text, :username
+    text :text
   end
 
 end
