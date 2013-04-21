@@ -155,4 +155,5 @@ DEPENDENCIES
   sunspot_rails
   sunspot_solr
   tweetstream
+  twitter
   uglifier (>= 1.0.3)

@@ -1,4 +1,8 @@
-task :loadtweetdb do
+require 'rake'
+
+desc 'call in console with rakeloadtweetdb[searchterm]'
+
+task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
 
   ENV["RAILS_ENV"] ||= "development"
 
@@ -13,7 +17,10 @@ task :loadtweetdb do
     config.auth_method        = :oauth
   end
 
-  TweetStream::Client.new.sample do |status|
+  @tweetcount = 0
+  TweetStream::Client.new.track(args[:mysearch]) do |status, client|
+    client.stop if @tweetcount >= 20
+    @tweetcount += 1
     begin
       if status.user.lang == "en"
        Tweet.create!({

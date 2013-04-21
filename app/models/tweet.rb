@@ -9,8 +9,11 @@ class Tweet < ActiveRecord::Base
       config.oauth_token_secret = 'eHyhAeJ6LzbFaaCuRyyniZTepxiUjmElkk3R7YllCek'
       config.auth_method        = :oauth
     end
-    
-    TweetStream::Client.new.sample do |status|
+
+    @tweetcount = 0
+    TweetStream::Client.new.track('boston') do |status, client|
+      client.stop if @tweetcount >= 20
+      @tweetcount += 1
       begin
         if status.user.lang == "en"
          Tweet.create!({

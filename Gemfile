@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'tweetstream'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
