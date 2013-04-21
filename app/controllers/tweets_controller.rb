@@ -1,7 +1,13 @@
 class TweetsController < ApplicationController
   def index
+    if params[:search] != nil 
+    	system "rake loadtweetdb[" + params[:search] + "]"
+    end
     Tweet.reindex
-    #system "rake loadtweetdb[" + "boston" + "]"
-    @tweets = Tweet.order("created_at desc")
+    @search = Tweet.search do
+      fulltext params[:search]
+      # order_by(:desc)
+    end
+    @tweets = @search.results
   end
 end
