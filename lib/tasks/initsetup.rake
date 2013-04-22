@@ -59,7 +59,7 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
   end
   
 
-  Twitter.search(args[:mysearch], :count => 2, :result_type => "recent").results.map do |status| 
+  Twitter.search(args[:mysearch], :count => 20).results.map do |status| 
     begin
       if status.user.lang == "en"
       unless Tweet.exists?(['guid = ? AND text = ?', status[:id], status.text])
@@ -69,7 +69,8 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
         :created_at => status.created_at,
         :lang => status.user.lang,
         :time_zone => status.user.time_zone,
-        :guid => status[:id]
+        :guid => status[:id],
+        :query => args[:mysearch]
         })
        puts "[#{status.user.screen_name}] #{status.text}"
         end # end unless

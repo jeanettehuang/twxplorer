@@ -1,7 +1,7 @@
 <center><h1 style="font-family: Helvetica; font-size: 40px">twxplorer</h1></center>
 
 <center>
-<%= form_tag '/tweets/index', :method => :get do %>
+<%= form_tag '/searchedtweets/index', :method => :get do %>
 	<p>
 		<div class="search-button">
 			<%= text_field_tag :search, params[:search] %>
@@ -12,20 +12,3 @@
 </center>
 
 
-<div id="container">
-<ul>
-<% @tweets.each do |tweet| %>
-  <li style="font-family:Helvetica" class="<%=cycle('odd', '')%>">
-    <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
-    <div style="font-family:Helvetica" class="tweet_text_area">
-      <div class="tweet_text">
-        <%= tweet.text %>
-      </div>
-      <div style="margin-bottom: 15px" class="tweet_created_at">
-        <%= time_ago_in_words tweet.created_at %> ago
-      </div>
-    </div>
-  </li>
-<% end %>
-</ul>
-</div>

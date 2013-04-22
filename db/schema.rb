@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130414222720) do
     t.string   "guid"
     t.string   "lang"
     t.string   "time_zone"
+    t.string   "query"
     t.datetime "updated_at", :null => false
   end
 

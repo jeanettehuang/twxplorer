@@ -7,6 +7,7 @@ class CreateTweets < ActiveRecord::Migration
       t.string :guid
       t.string :lang
       t.string :time_zone
+      t.string :query
 
       t.timestamps
     end

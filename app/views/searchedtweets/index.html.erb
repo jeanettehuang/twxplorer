@@ -11,6 +11,10 @@
 <% end %>
 </center>
 
+<% @sortedhash.first(10).each do |key, value| %>
+	<li><%= "#{key}: #{value}" %>
+<% end %>
+
 
 <div id="container">
 <ul>
