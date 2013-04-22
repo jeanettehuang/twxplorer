@@ -4,6 +4,7 @@ class SearchedtweetsController < ApplicationController
       system "rake loadtweetdb[" + params[:search] + "]"
     end
    @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+   
   #  @searchedtweets = Tweet.order("created_at desc")
 
     @hash = Hash.new(0)

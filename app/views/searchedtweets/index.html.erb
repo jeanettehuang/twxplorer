@@ -30,7 +30,7 @@
   <div id="content-wrap">
 	<div class="sidebar-headers">Tweets</div>
   <ul>
-  <% @searchedtweets.each do |tweet| %>
+  <% @searchedtweets.reverse.each do |tweet| %>
    <li class="<%=cycle('odd', '')%>">
      <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
      <div style="font-family:Helvetica" class="tweet_text_area">
