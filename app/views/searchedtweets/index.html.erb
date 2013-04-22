@@ -1,35 +1,49 @@
-<center><h1 style="font-family: Helvetica; font-size: 40px">twxplorer</h1></center>
+<center>
+	<div class="header-wrapper">
+	<div class="twxplorer-header">twxplorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+	</div>
+</center>
 
 <center>
 <%= form_tag '/searchedtweets/index', :method => :get do %>
-	<p>
-		<div class="search-button">
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag "Search for Tweets", :name => nil %>
-			</div>
-	</p>
+  <p>
+    <div class="search-button">
+      <%= text_field_tag :search, params[:search], :class => 'search-input' %>
+      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
+      </div>
+  </p>
 <% end %>
 </center>
 
-<% @sortedhash.first(10).each do |key, value| %>
-	<li><%= "#{key}: #{value}" %>
-<% end %>
+<div id = "main-wrap">
+  <div id="sidebar">
+	<div class="sidebar-wrapper" style="text-align:right">
+		<div class="sidebar-headers">Common Words</div>
+    <% @sortedhash.first(10).each do |key, value| %>
+      <p style="margin-bottom: -10px"><strong><%= "#{key}:" %></strong>
+      <%= "#{value}" %></p>
+      <br>
+    <% end %>
+		</div>
+  </div>
 
+  <div id="content-wrap">
+	<div class="sidebar-headers">Tweets</div>
+  <ul>
+  <% @searchedtweets.each do |tweet| %>
+   <li class="<%=cycle('odd', '')%>">
+     <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
+     <div style="font-family:Helvetica" class="tweet_text_area">
+       <div class="tweet_text">
+         <%= tweet.text %>
+       </div>
+       <div style="margin-bottom: 15px" class="tweet_created_at">
+         <%= time_ago_in_words tweet.created_at %> ago
+       </div>
+     </div>
+   </li>
+  <% end %>
+  </ul>
+  </div>
 
-<div id="container">
-<ul>
-<% @searchedtweets.each do |tweet| %>
-  <li style="font-family:Helvetica" class="<%=cycle('odd', '')%>">
-    <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
-    <div style="font-family:Helvetica" class="tweet_text_area">
-      <div class="tweet_text">
-        <%= tweet.text %>
-      </div>
-      <div style="margin-bottom: 15px" class="tweet_created_at">
-        <%= time_ago_in_words tweet.created_at %> ago
-      </div>
-    </div>
-  </li>
-<% end %>
-</ul>
 </div>

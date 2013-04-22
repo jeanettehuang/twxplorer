@@ -1,3 +1,115 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+font-family: OstrichBold;
+src: url('type/ostrich_bold-webfont.ttf'),
+	 url('ostrich_bold-webfont.eot');
+}
+
+@font-face {
+font-family: OstrichRegular;
+src: url('type/ostrich_regular-webfont.ttf'),
+	 url('ostrich_regular-webfont.eot');
+}
+
+@font-face {
+font-family: HelveticaNeue-Light;
+src: url('type/HelveticaNeue-Light.ttf'),
+	 url('HelveticaNeue-Light.eot');
+}
+
+.twxplorer-header {
+  font-family: OstrichRegular;
+	font-size: 100px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	display: inline;
+
+}
+
+.button a:link {color: #fff; font-family: HelveticaNeue-Light; text-transform: none; text-decoration: none; font-size: 18px;}
+.button a:visited {color: #fff; font-family: HelveticaNeue-Light; text-transform: none; text-decoration: none; font-size: 18px;}
+
+.button {
+	border: 1px solid #bebebe;
+	background: #0e4b73;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0c7ac4), to(#0e4b73));
+	background: -webkit-linear-gradient(top, #0c7ac4, #0e4b73);
+	background: -moz-linear-gradient(top, #0c7ac4, #0e4b73);
+	background: -ms-linear-gradient(top, #0c7ac4, #0e4b73);
+	background: -o-linear-gradient(top, #0c7ac4, #0e4b73);
+	padding: 5.5px 11px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	-webkit-box-shadow: black 0 1px 0;
+	-moz-box-shadow: black 0 1px 0;
+	box-shadow: black 0 1px 0;
+	text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+	color: white;
+	font-family:HelveticaNeue-Light;
+	font-size:20px;
+	font-weight:normal;
+	padding:6px 24px;
+	text-decoration:none;
+}
+
+.search-input {
+  font-family: HelveticaNeue-Light;
+  width: 150px;
+  height: 32px !important;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  font-size: 20px !important;
+}
+
+/* sizes */
+
+#main-wrap > div { min-height: 450px;  }
+
+/* layout */
+#main-wrap {
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 25%;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#content-wrap {
+    float: right;
+    width: 70%;
+    border-left: 1px solid #bebebe;
+    padding-left: 40px;
+}
+
+.sidebar-headers {
+  font-size: 25px;
+  font-family: HelveticaNeue-Light;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.landing {
+  position: fixed;
+  top: 30%;
+  left: 40%;
+}
+
+.logo {
+  width: 40px;
+  display: inline;
+  margin-top: -80px;
+}
+
+.header-wrapper {
+  margin-top: 80px;
+}

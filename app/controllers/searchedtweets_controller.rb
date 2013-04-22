@@ -3,9 +3,9 @@ class SearchedtweetsController < ApplicationController
     if params[:search] != nil 
       system "rake loadtweetdb[" + params[:search] + "]"
     end
-    @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
-    
-    
+   @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+  #  @searchedtweets = Tweet.order("created_at desc")
+
     @hash = Hash.new(0)
     @text_array = []
     @searchedtweets.each do |entry|

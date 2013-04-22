@@ -1,14 +1,16 @@
-<center><h1 style="font-family: Helvetica; font-size: 40px">twxplorer</h1></center>
+<div class="landing"><center><div class="header-wrapper">
+<div class="twxplorer-header">twxplorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+</div></center>
 
 <center>
 <%= form_tag '/searchedtweets/index', :method => :get do %>
-	<p>
-		<div class="search-button">
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag "Search for Tweets", :name => nil %>
-			</div>
-	</p>
+  <p>
+    <div class="search-button">
+      <%= text_field_tag :search, params[:search], :class => 'search-input' %>
+      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
+      </div>
+  </p>
 <% end %>
 </center>
-
+</div>
 
