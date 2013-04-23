@@ -1,6 +1,6 @@
 <center>
 	<div class="header-wrapper">
-	<div class="twxplorer-header">twxplorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+	<div class="twxplorer-header">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div> <img class="logo" src="/images/twxplorer-logo.png">
 	</div>
 </center>
 
@@ -19,7 +19,7 @@
   <div id="sidebar">
 	<div class="sidebar-wrapper" style="text-align:right">
 		<div class="sidebar-headers">Common Words</div>
-    <% @sortedhash.first(10).each do |key, value| %>
+    <% @sortedhash.first(15).each do |key, value| %>
       <p style="margin-bottom: -10px"><strong><%= "#{key}:" %></strong>
       <%= "#{value}" %></p>
       <br>
