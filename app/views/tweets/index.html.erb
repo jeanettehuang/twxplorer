@@ -1,5 +1,6 @@
+<div id="wrap">
 <body>
-  <div class="navbar">
+  <div class="navbar navbar-inverse">
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="#">twXplorer</a>
@@ -8,14 +9,14 @@
   </div>
 
 	<div class="landing"><center><div class="header-wrapper">
-	<div class="twxplorer-header">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+	<div class="twxplorer-header header-normal">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div>
 	</div></center>
 
 	<center>
 	<%= form_tag '/searchedtweets/index', :method => :get do %>
 	 <p>
 	   <div class="search-button">
-	     <%= text_field_tag :search, params[:search], :class => 'search-input' %>
+	     <%= text_field_tag :search, params[:search], :class => 'search-input search-input-home' %>
 	     <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
 	     </div>
 	 </p>
@@ -23,4 +24,13 @@
 	</center>
 	</div>
 </body>
+<div id="push"></div>
+</div>
+
+
+<div id="footer">
+      <div class="container">
+        <p class="muted credit">Built by Team <a href="#">twXplorer</a>: Allen Zeng, Jeanette Huang, and Miguel Huerta <br> Innovation in Technology and Journalism · Spring 2013 · Northwestern University</p>
+      </div>
+</div>
 

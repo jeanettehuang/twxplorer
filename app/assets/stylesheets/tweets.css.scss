@@ -26,10 +26,81 @@ src: url('type/HelveticaNeue-Light.ttf'),
 	margin-top: 50px;
 	margin-bottom: 20px;
 	display: inline;
+	background-image:url('/images/twxplorer-logo.png');
+	background-size:40px 60px;
+  background-repeat:no-repeat;
+  background-position: 360px 0px;
+}
+
+.tweets {
+  background-image:url('/images/twitter-gray.png');
+  background-repeat: no-repeat;
+  background-position: 10px -4px;
+  background-size: 25px 25px;
+  padding-left: 40px;
+  
+}
+
+.tweet-created-at {
+  display: inline;
+  float: right;
+  color: #9c9c9c;
+  font-size: 12px;
+}
+
+.avatar {
+  width: 35px;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+.single-tweet {
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 10px solid #fdfdfd;
+  background-color: #fcfcfc;
+  width: 85%;
+  margin-bottom: 10px;
+  padding: 5px
+}
+
+.tweet-name {
+  font-weight: bold;
+}
+
+.username {
+  color: #9b9b9b;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.tweet-text {
+  margin-top: -15px;
+  margin-left: 50px;
+}
+
+.header-normal {
+  padding-right: 70px;
 }
 
 .twxplorer-x {
   font-size: 130px !important;
+  background-image: none;
+}
+
+.twxplorer-detail {
+  float: left;
+  font-size: 70px;
+  margin-top: 20px;
+  background-size: 30px 40px;
+  background-position: 250px 0px;
+  height: 45px;
+  margin-left: 20px;
+}
+
+.twxplorer-x-detail {
+  font-size: 90px;
+  background-image: none;
 }
 
 .button a:link {color: #fff; font-family: HelveticaNeue-Light; text-transform: none; text-decoration: none; font-size: 18px;}
@@ -59,15 +130,35 @@ src: url('type/HelveticaNeue-Light.ttf'),
 	text-decoration:none;
 }
 
+#search-bar-wrapper {
+  margin-top: -20px;
+  background-color: #F8F8F8;
+  height: 70px;
+  padding-top: 10px;
+}
+
 .search-input {
   font-family: HelveticaNeue-Light;
-  width: 150px;
   height: 32px !important;
   margin-top: 30px;
-  margin-left: 20px;
   border-radius: 8px;
   -moz-border-radius: 8px;
   font-size: 20px !important;
+}
+
+.search-input-home {
+  display: block !important;
+  width: 330px;
+}
+
+.search-input-detail {
+  width: 300px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.search-btn-detail {
+  margin-top: -2px;
 }
 
 /* sizes */
@@ -78,6 +169,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
 #main-wrap {
     /* overflow to handle inner floating block */
     overflow: hidden;
+    margin-left: -2px;
 }
 
 #sidebar {
@@ -103,13 +195,13 @@ src: url('type/HelveticaNeue-Light.ttf'),
 
 #tweet-wrap {
   overflow: auto;
-  height: 420px;
+  height: 550px;
 }
 
 .landing {
   position: fixed;
-  top: 30%;
-  left: 40%;
+  top: 27%;
+  left: 38%;
 }
 
 .logo {
@@ -120,4 +212,54 @@ src: url('type/HelveticaNeue-Light.ttf'),
 
 .header-wrapper {
   margin-top: 80px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -80px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 80px;
+}
+#footer {
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+#wrap > .container {
+  padding-top: 60px;
+}
+
+.container .credit {
+  margin: 20px 0;
+}
+
+code {
+  font-size: 80%;
 }

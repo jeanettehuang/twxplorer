@@ -8,6 +8,8 @@ class CreateTweets < ActiveRecord::Migration
       t.string :lang
       t.string :time_zone
       t.string :query
+      t.string :avatar
+      t.string :name
 
       t.timestamps
     end

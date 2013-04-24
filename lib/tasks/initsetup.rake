@@ -28,7 +28,9 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
         :lang => status.user.lang,
         :time_zone => status.user.time_zone,
         :guid => status[:id],
-        :query => args[:mysearch]
+        :query => args[:mysearch],
+        :avatar => status.profile_image_url,
+        :name => status.user.name
         })
        puts "[#{status.user.screen_name}] #{status.text}"
         end # end unless

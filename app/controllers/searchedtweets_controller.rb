@@ -7,7 +7,7 @@ class SearchedtweetsController < ApplicationController
     end
    @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
    
-  # @searchedtweets = Tweet.order("created_at desc")
+ # @searchedtweets = Tweet.order("created_at desc")
 
   @hash = Hash.new(0)
   @text_array = []
@@ -16,8 +16,10 @@ class SearchedtweetsController < ApplicationController
   end
   @text_array.each do |tweet|
     tweet.each do |word|
-      unless STOPLIST.include?(word.downcase) or word.downcase == params[:search] or word.downcase == "#" + params[:search]
-        @hash[word.downcase] += 1
+      word = word.downcase
+      word = word.gsub(/[^0-9a-z ]/i, '')
+      unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search]
+        @hash[word] += 1
       end
     end
   end
@@ -31,7 +33,7 @@ class SearchedtweetsController < ApplicationController
   end
   
   @chart = Highcharts.new do |chart|
-    chart.chart(renderTo: 'graph')
+    chart.chart(renderTo: 'graph', plotShadow: true)
     chart.title('')
     chart.credits(enabled: false)
     chart.xAxis(categories: @keyhash)

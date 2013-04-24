@@ -1,5 +1,5 @@
 <body>
-<div class="navbar">
+<div class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/tweets/index">twXplorer</a>
@@ -7,22 +7,18 @@
   </div>
 </div>
 
-<center>
-	<div class="header-wrapper">
-	<div class="twxplorer-header">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+<div id="search-bar-wrapper">
+	<div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div>
+	<div class="test" style="display: inline">
+	<%= form_tag '/searchedtweets/index', :method => :get do %>
+	  <p>
+	      <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail' %>
+	      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large search-btn-detail' %>
+	  </p>
+	<% end %>
 	</div>
-</center>
+</div>
 
-<center>
-<%= form_tag '/searchedtweets/index', :method => :get do %>
-  <p>
-    <div class="search-button">
-      <%= text_field_tag :search, params[:search], :class => 'search-input' %>
-      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
-      </div>
-  </p>
-<% end %>
-</center>
 
 
 <div id = "main-wrap">
@@ -44,21 +40,23 @@
   </div>
 
   <div id="content-wrap">
-	<div class="sidebar-headers">What People Are Saying</div>
+	<div class="sidebar-headers tweets">What People Are Saying</div>
   
 	<div id="tweet-wrap">
   <% @searchedtweets.reverse.each do |tweet| %>
-   <li class="<%=cycle('odd', '')%>">
-     <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
-     <div style="font-family:Helvetica" class="tweet_text_area">
-       <div class="tweet_text">
+   <div class="<%=cycle('odd', '')%> single-tweet">
+    <img src="<%= tweet.avatar %>" class="avatar"></img>
+		<span class="tweet-name"><%= tweet.name %></span>
+		<%= link_to "@" + tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
+		<div class="tweet-created-at">
+      <%= time_ago_in_words tweet.created_at %> ago
+    </div>
+     <div class="tweet-text-area">
+       <div class="tweet-text">
          <%= tweet.text %>
        </div>
-       <div style="margin-bottom: 15px" class="tweet_created_at">
-         <%= time_ago_in_words tweet.created_at %> ago
-       </div>
      </div>
-   </li>
+   </div>
   <% end %>
 </div>
 
