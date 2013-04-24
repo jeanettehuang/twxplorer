@@ -2,12 +2,12 @@ require 'stoplist'
 
 class SearchedtweetsController < ApplicationController
   def index
-   #  if params[:search] != nil 
-   #    system "rake loadtweetdb[" + params[:search] + "]"
-   #  end
-   # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+    if params[:search] != nil 
+      system "rake loadtweetdb[" + params[:search] + "]"
+    end
+   @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
    
-  @searchedtweets = Tweet.order("created_at desc")
+  # @searchedtweets = Tweet.order("created_at desc")
 
   @hash = Hash.new(0)
   @text_array = []
