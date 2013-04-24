@@ -1,16 +1,26 @@
-<div class="landing"><center><div class="header-wrapper">
-<div class="twxplorer-header">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div> <img class="logo" src="/images/twxplorer-logo.png">
-</div></center>
-
-<center>
-<%= form_tag '/searchedtweets/index', :method => :get do %>
-  <p>
-    <div class="search-button">
-      <%= text_field_tag :search, params[:search], :class => 'search-input' %>
-      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">twXplorer</a>
       </div>
-  </p>
-<% end %>
-</center>
-</div>
+    </div>
+  </div>
+
+	<div class="landing"><center><div class="header-wrapper">
+	<div class="twxplorer-header">tw<div class="twxplorer-x twxplorer-header">x</div>plorer</div> <img class="logo" src="/images/twxplorer-logo.png">
+	</div></center>
+
+	<center>
+	<%= form_tag '/searchedtweets/index', :method => :get do %>
+	 <p>
+	   <div class="search-button">
+	     <%= text_field_tag :search, params[:search], :class => 'search-input' %>
+	     <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
+	     </div>
+	 </p>
+	<% end %>
+	</center>
+	</div>
+</body>
 
