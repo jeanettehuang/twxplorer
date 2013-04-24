@@ -26,5 +26,11 @@ STOPLIST = [
   "as",
   "on",
   "out",
-  "are"
+  "are",
+  "was",
+  "have",
+  "be",
+  "now",
+  "but",
+  "more"
 ]
