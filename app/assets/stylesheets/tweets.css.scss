@@ -82,16 +82,18 @@ src: url('type/HelveticaNeue-Light.ttf'),
 
 #sidebar {
     float: left;
-    width: 25%;
+    width: 50%;
     text-align: center;
     margin-right: 20px;
 }
 
 #content-wrap {
     float: right;
-    width: 70%;
+    width: 45%;
     border-left: 1px solid #bebebe;
     padding-left: 40px;
+    overflow: auto;
+    height: 230px;
 }
 
 .sidebar-headers {
@@ -99,6 +101,10 @@ src: url('type/HelveticaNeue-Light.ttf'),
   font-family: HelveticaNeue-Light;
   margin-top: 25px;
   margin-bottom: 20px;
+}
+
+#tweet-wrap {
+  overflow: auto;
 }
 
 .landing {

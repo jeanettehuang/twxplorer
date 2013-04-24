@@ -15,21 +15,29 @@
 <% end %>
 </center>
 
+
 <div id = "main-wrap">
   <div id="sidebar">
-	<div class="sidebar-wrapper" style="text-align:right">
-		<div class="sidebar-headers">Common Words</div>
+	<div class="sidebar-wrapper" style="text-align:center">
+		
+		<div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>" </div>
+		<%= @chart %>
+		<div id="graph"></div>
+		
+		<!-- <div class="sidebar-headers">Common Words</div>
+		
     <% @sortedhash.first(15).each do |key, value| %>
       <p style="margin-bottom: -10px"><strong><%= "#{key}:" %></strong>
       <%= "#{value}" %></p>
       <br>
-    <% end %>
+    <% end %> -->
 		</div>
   </div>
 
   <div id="content-wrap">
 	<div class="sidebar-headers">Tweets</div>
-  <ul>
+  
+	<div id="tweet-wrap">
   <% @searchedtweets.reverse.each do |tweet| %>
    <li class="<%=cycle('odd', '')%>">
      <%= link_to tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
@@ -43,7 +51,9 @@
      </div>
    </li>
   <% end %>
-  </ul>
+</div>
+
+	
   </div>
 
 </div>

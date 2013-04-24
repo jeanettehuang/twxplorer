@@ -60,6 +60,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    highcharts-js-rails (1.0.0)
+      railties (>= 3.1, < 4.1)
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
@@ -151,6 +153,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   coffee-rails (~> 3.2.1)
+  highcharts-js-rails (~> 1.0.0)
   jquery-rails
   rails (= 3.2.13)
   sass-rails (~> 3.2)
