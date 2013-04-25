@@ -26,7 +26,7 @@ class SearchedtweetsController < ApplicationController
 
     @keyhash = []
     @valueshash = []
-    @sortedhash.first(5).each do |key, value|
+    @sortedhash.first(10).each do |key, value|
       @keyhash.push(key)
       @valueshash.push(value)
     end
@@ -37,7 +37,7 @@ class SearchedtweetsController < ApplicationController
       chart.credits(enabled: false)
       chart.xAxis(categories: @keyhash)
       chart.yAxis(title: 'Word Count', min: 0)
-      chart.series(name: 'Word Count', yAxis: 0, type: 'column', data: @valueshash)
+      chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
       chart.tooltip(formatter: "function(){ return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; }")
     end
