@@ -1,66 +1,54 @@
+<!-- Search Detail Page -->
+
 <body>
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="/tweets/index">twXplorer</a>
+  <!-- Navbar -->
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/tweets/index">twXplorer</a>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="search-bar-wrapper">
-	<div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div>
-	<div class="test" style="display: inline">
-	<%= form_tag '/searchedtweets/index', :method => :get do %>
-	  <p>
-	      <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail' %>
-	      <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large search-btn-detail' %>
-	  </p>
-	<% end %>
-	</div>
-</div>
-
-
-
-<div id = "main-wrap">
-  <div id="sidebar">
-	<div class="sidebar-wrapper" style="text-align:center">
-		
-		<div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>" </div>
-		<%= @chart %>
-		<div id="graph"></div>
-		
-		<!-- <div class="sidebar-headers">Common Words</div>
-		
-    <% @sortedhash.first(15).each do |key, value| %>
-      <p style="margin-bottom: -10px"><strong><%= "#{key}:" %></strong>
-      <%= "#{value}" %></p>
-      <br>
-    <% end %> -->
-		</div>
+  <!-- Search bar -->
+  <div id="search-bar-wrapper">
+    <div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div>
+    <div class="test" style="display: inline">
+    <%= form_tag '/searchedtweets/index', :method => :get do %>
+      <p>
+          <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail' %>
+          <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large search-btn-detail' %>
+      </p>
+    <% end %>
+    </div>
   </div>
 
-  <div id="content-wrap">
-	<div class="sidebar-headers tweets">What People Are Saying</div>
-  
-	<div id="tweet-wrap">
-  <% @searchedtweets.reverse.each do |tweet| %>
-   <div class="<%=cycle('odd', '')%> single-tweet">
-    <img src="<%= tweet.avatar %>" class="avatar"></img>
-		<span class="tweet-name"><%= tweet.name %></span>
-		<%= link_to "@" + tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
-		<div class="tweet-created-at">
-      <%= time_ago_in_words tweet.created_at %> ago
+  <!-- Graph sidebar -->
+  <div id = "main-wrap">
+    <div id="sidebar">
+      <div class="sidebar-wrapper" style="text-align:center">
+        <div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>"</div>
+        <%= @chart %>
+        <div id="graph"></div>
+      </div>
     </div>
-     <div class="tweet-text-area">
-       <div class="tweet-text">
-         <%= tweet.text %>
-       </div>
-     </div>
-   </div>
-  <% end %>
-</div>
 
-</div>
-</div>
-
+  <!-- Tweets sidebar -->
+    <div id="content-wrap">
+      <div class="sidebar-headers tweets">What People Are Saying</div>
+      <div id="tweet-wrap">
+        <% @searchedtweets.reverse.each do |tweet| %>
+          <div class="<%=cycle('odd', '')%> single-tweet">
+            <img src="<%= tweet.avatar %>" class="avatar"></img>
+            <span class="tweet-name"><%= tweet.name %></span>
+            <%= link_to "@" + tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
+            <div class="tweet-created-at"><%= time_ago_in_words tweet.created_at %> ago</div>
+            <div class="tweet-text-area">
+              <div class="tweet-text"><%= tweet.text %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </body>
