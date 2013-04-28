@@ -40,6 +40,7 @@ class SearchedtweetsController < ApplicationController
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
       chart.tooltip(formatter: "function() { s='<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; return s;}")
+      chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {alert('test alert')}"}}})
     end
   end
 end
