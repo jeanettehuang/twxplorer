@@ -2,11 +2,11 @@ require 'stoplist'
 
 class SearchedtweetsController < ApplicationController
   def index
-    if params[:search] != nil 
-      system "rake loadtweetdb[" + params[:search] + "]"
-    end
-   @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
-   # @searchedtweets = Tweet.order("created_at desc")
+   #  if params[:search] != nil 
+   #    system "rake loadtweetdb[" + params[:search] + "]"
+   #  end
+   # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+   @searchedtweets = Tweet.order("created_at desc")
 
     @hash = Hash.new(0)
     @text_array = []
@@ -39,7 +39,7 @@ class SearchedtweetsController < ApplicationController
       chart.yAxis(title: 'Word Count', min: 0)
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
-      chart.tooltip(formatter: "function(){ return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; }")
+      chart.tooltip(formatter: "function() { s='<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; return s;}")
     end
   end
 end
