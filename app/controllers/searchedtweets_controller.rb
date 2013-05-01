@@ -1,24 +1,24 @@
 require 'stoplist'
 
 class SearchedtweetsController < ApplicationController
-  before_filter :getvars
   before_filter :index
   before_filter :makedata
 
   def index
   end
 
-  def rendermakedata 
-    render :partial => 'makedata'
-  end
-
   def makedata
-    #  if params[:search] != nil 
-    #    system "rake loadtweetdb[" + params[:search] + "]"
-    #  end
-    # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
-    @searchedtweets = Tweet.order("created_at desc")
-
+   if params[:id].nil?
+       if params[:search] != nil 
+         system "rake loadtweetdb[" + params[:search] + "]"
+       end
+       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+    else
+      @searchedtweets = Tweet.where("text LIKE :prefix AND query='" + params[:search] + "'", prefix: "%" + params[:id] +"%")
+    end
+    
+    # @searchedtweets = Tweet.order("created_at desc")
+    
     @hash = Hash.new(0)
     @text_array = []
     @searchedtweets.each do |entry|
@@ -51,22 +51,11 @@ class SearchedtweetsController < ApplicationController
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
       chart.tooltip(formatter: "function() { s='<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; return s;}")
-      # chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {
-      #   jQuery.ajax({
-      #     type:'GET',
-      #     url: '_makedata',
-      #     dataType:'json',
-      #     data:'id=' + this.category});}".squish}}})
-      
       chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {
-        $.get('/searchedtweets/_makedata?id=' + this.category, function(response) { $('#main-wrap').html(response);}, 'html');
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + this.category, function(response) { $('#main-wrap').html(response);}, 'html');
           }".squish}}})
 
     end
   end
 
-  def getvars
-    @test = params[:id]
-   # render :partial => 'getvars'
-  end
 end

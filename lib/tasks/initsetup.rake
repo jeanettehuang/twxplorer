@@ -1,5 +1,5 @@
 require 'rake'
-desc 'call in console with rakeloadtweetdb[searchterm]'
+desc 'call in console with rakeloadtweetdb[searchterm]. NOTE: If DB locks, START SOLR. Command: bundle exec rake sunspot:solr:start'
 
 task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
   ENV["RAILS_ENV"] ||= "development"
