@@ -2,6 +2,14 @@ TweetSuite::Application.routes.draw do
   root :to => "tweets#index"
   get "tweets/index"
   get "searchedtweets/index"
+  
+  get "searchedtweets/getvars"
+  get "searchedtweets/getvars/:id" => "searchedtweets#getvars"
+  
+  get "searchedtweets/rendermakedata"
+  get "searchedtweets/_makedata"
+  get "searchedtweets/_makedata/:id" => "searchedtweets#makedata"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

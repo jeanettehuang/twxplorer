@@ -1,0 +1,27 @@
+<!-- Graph sidebar -->
+<div id="sidebar">
+  <div class="sidebar-wrapper" style="text-align:center">
+    <div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>"</div>
+    <%= params[:id] %>
+    
+    <div id="graph"><%= @chart %></div>
+  </div>
+</div>
+
+<!-- Tweets sidebar -->
+<div id="content-wrap">
+  <div class="sidebar-headers tweets">What People Are Saying</div>
+  <div id="tweet-wrap">
+    <% @searchedtweets.reverse.each do |tweet| %>
+      <div class="<%=cycle('odd', '')%> single-tweet">
+        <img src="<%= tweet.avatar %>" class="avatar"></img>
+        <span class="tweet-name"><%= tweet.name %></span>
+        <%= link_to "@" + tweet.username, "http://twitter.com/#{tweet.username}", :class => "username", :target => "_blank" %>
+        <div class="tweet-created-at"><%= time_ago_in_words tweet.created_at %> ago</div>
+        <div class="tweet-text-area">
+          <div class="tweet-text"><%= tweet.text %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
