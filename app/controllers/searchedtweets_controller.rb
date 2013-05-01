@@ -28,7 +28,7 @@ class SearchedtweetsController < ApplicationController
       tweet.each do |word|
         word = word.downcase
         word = word.gsub(/[^0-9a-z ]/i, '')
-        unless STOPLIST.include?(word) # or word == params[:search] or word == "#" + params[:search]
+        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search]
           @hash[word] += 1
         end
       end
