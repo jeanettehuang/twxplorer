@@ -59,7 +59,7 @@ class SearchedtweetsController < ApplicationController
       #     data:'id=' + this.category});}".squish}}})
       
       chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {
-        $.get('/searchedtweets/_makedata?id=' + this.category, function(response) { $('#main-wrap').html(response);});
+        $.get('/searchedtweets/_makedata?id=' + this.category, function(response) { $('#main-wrap').html(response);}, 'html');
           }".squish}}})
 
     end
