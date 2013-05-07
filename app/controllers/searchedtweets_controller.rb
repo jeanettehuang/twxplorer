@@ -14,7 +14,7 @@ class SearchedtweetsController < ApplicationController
 
     if params[:id].nil?
       if params[:search] != nil 
-        system "rake loadtweetdb[" + params[:search] + "]"
+        # system "rake loadtweetdb[" + params[:search] + "]"
       end
       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
     else
@@ -23,7 +23,7 @@ class SearchedtweetsController < ApplicationController
       @idarray = @oldid.split(':')
       @idarray.shift
       @idarray.each do |i|
-        @sqlquery += " AND text LIKE '% " + i + " %'"
+        @sqlquery += " AND text LIKE '%" + i + "%'"
         @titletext += ' and "' + i + '"'
       end
       @searchedtweets = Tweet.where(@sqlquery)
