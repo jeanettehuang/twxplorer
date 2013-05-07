@@ -11,6 +11,7 @@ class SearchedtweetsController < ApplicationController
     @oldid = ""
     @titletext = ""
     @catchempty = ""
+    @idarray = []
 
     if params[:id].nil?
       if params[:search] != nil 
@@ -42,8 +43,9 @@ class SearchedtweetsController < ApplicationController
     @text_array.each do |tweet|
       tweet.each do |word|
         word = word.downcase
+        # word = word.delete("^a-zA-Z ")
         word = word.gsub(/[^0-9a-z ]/i, '')
-        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search]
+        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('http') or word.match('^[0-9]+$')
           @hash[word] += 1
         end
       end
@@ -62,6 +64,7 @@ class SearchedtweetsController < ApplicationController
       chart.title('')
       chart.credits(enabled: false)
       chart.xAxis(categories: @keyhash)
+      # chart.scrollbar(enabled: true)
       chart.yAxis(title: 'Word Count', min: 0)
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
