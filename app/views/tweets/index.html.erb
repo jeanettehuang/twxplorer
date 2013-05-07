@@ -21,11 +21,11 @@
 
     <!-- Search bar -->
     <center>
-    <%= form_tag '/searchedtweets/index', :method => :get do %>
+    <%= form_tag '/searchedtweets/index', :id => 'submit-search-form', :onsubmit => 'return validate(this)', :method => :get do %>
      <p>
        <div class="search-button">
          <%= text_field_tag :search, params[:search], :class => 'search-input search-input-home' %>
-         <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large' %>
+         <%= submit_tag "Search for Tweets", :name => nil, :id => 'submit-button', :class =>'btn btn-primary btn-large' %>
        </div>
      </p>
     <% end %>

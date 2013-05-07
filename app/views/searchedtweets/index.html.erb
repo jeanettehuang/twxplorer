@@ -14,10 +14,10 @@
   <div id="search-bar-wrapper">
     <div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div>
     <div class="test" style="display: inline">
-    <%= form_tag '/searchedtweets/index', :method => :get do %>
+    <%= form_tag '/searchedtweets/index', :id => 'submit-search-form', :onsubmit => 'return validate(this)', :method => :get do %>
       <p>
           <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail' %>
-          <%= submit_tag "Search for Tweets", :name => nil, :class =>'btn btn-primary btn-large search-btn-detail' %>
+          <%= submit_tag "Search for Tweets", :name => nil, :id => 'submit-button', :class =>'btn btn-primary btn-large search-btn-detail' %>
       </p>
     <% end %>
     </div>
@@ -25,6 +25,7 @@
 
   <!-- Graph and tweets sidebar -->
   <div id = "main-wrap">
-    <%= render :partial => 'makedata', :search => params[:search] %>
+    <!-- Render graph and tweets sidebars -->
+    <%= render :partial => 'makedata' %>
   </div>
 </body>

@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require highcharts
 //= require_tree .
+
+function validate() {
+  if($("#search").val().length == 0) {
+    alert("Looks like you didn't enter a search term!");
+    return false;
+  }
+  return true;
+}

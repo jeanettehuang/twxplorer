@@ -2,10 +2,19 @@
 <div id="sidebar">
   <div class="sidebar-wrapper" style="text-align:center">
     <% if params[:id] != nil %>
-      <div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>" and "<%= params[:id] %>"</div>
+      <div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>" <%= @titletext %></div>
     <% else %>
       <div class="sidebar-headers">Common Words in Tweets Containing "<%= params[:search] %>"</div>
     <% end %>
+    <div id="id-string"><%= @oldid %></div>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        var alertText = '<%= @catchempty %>';
+        if(alertText.length > 0){
+          alert(alertText);
+        }
+      });
+    </script>
     <div id="graph"><%= @chart %></div>
     
   </div>

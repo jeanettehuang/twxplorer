@@ -157,6 +157,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
   margin-top: -2px;
 }
 
+
 /* Two column CSS
 -------------------------------------------------- */
 
@@ -192,6 +193,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
   font-family: HelveticaNeue-Light;
   margin-top: 25px;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 
 
@@ -241,4 +243,10 @@ body {
 
 code {
   font-size: 80%;
+}
+
+/* Misc
+-------------------------------------------------- */
+#id-string {
+  display: none;
 }
