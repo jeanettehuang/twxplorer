@@ -31,7 +31,7 @@ $("a.breadcrumbs").click(function() {
     var currentid = $(this).attr("id");
     if (currentid == stopid) {
       oldid += ":" + currentid;
-      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid, function(response) { $('#main-wrap').html(response);}, 'html');
+      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid, function(response) { $('#big-wrap').html(response);}, 'html');
     }
     else {
       oldid += ":" + currentid;
