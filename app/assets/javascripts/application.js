@@ -25,6 +25,7 @@ function validate() {
 
 $("a.breadcrumbs").click(function() {
   var stopid = $(this).attr("id");
+  var oldid = "";
   // $('a.breadcrumbs').first().remove();
   if (stopid == $('.search-input').val()) {
     $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + stopid, function(response) { $('#big-wrap').html(response);}, 'html');
