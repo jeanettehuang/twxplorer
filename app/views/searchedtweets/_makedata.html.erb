@@ -1,5 +1,11 @@
 <script src="http://code.highcharts.com/stock/highstock.js" type="text/javascript"></script>
 
+<div id="breadcrumbs-wrapper">
+<% @idarray.each do |i| %>
+  <a class="breadcrumbs" id="<%= i %>"><%= i %></a><p class="breadcrumb-arrow"> > </p>
+<% end %>
+</div>
+
 <!-- Graph sidebar -->
 <div id="sidebar">
   <div class="sidebar-wrapper" style="text-align:center">

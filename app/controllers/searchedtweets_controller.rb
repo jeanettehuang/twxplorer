@@ -3,8 +3,12 @@ require 'stoplist'
 class SearchedtweetsController < ApplicationController
   before_filter :index
   before_filter :makedata
+  before_filter :header
 
   def index
+  end
+  
+  def header
   end
 
   def makedata
@@ -15,7 +19,7 @@ class SearchedtweetsController < ApplicationController
 
     if params[:id].nil?
       if params[:search] != nil 
-        # system "rake loadtweetdb[" + params[:search] + "]"
+      #  system "rake loadtweetdb[" + params[:search] + "]"
       end
       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
     else
@@ -27,6 +31,7 @@ class SearchedtweetsController < ApplicationController
         @sqlquery += " AND text LIKE '%" + i + "%'"
         @titletext += ' and "' + i + '"'
       end
+      @idarray.insert(0, params[:search]) # add search param to front of array
       @searchedtweets = Tweet.where(@sqlquery)
       if @searchedtweets.count == 0
         @catchempty = "No Results Found"
@@ -44,8 +49,8 @@ class SearchedtweetsController < ApplicationController
       tweet.each do |word|
         word = word.downcase
         # word = word.delete("^a-zA-Z ")
-        word = word.gsub(/[^0-9a-z ]/i, '')
-        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('http') or word.match('^[0-9]+$')
+        word = word.gsub(/[^0-9a-z  _@]/i, '')
+        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$')
           @hash[word] += 1
         end
       end
@@ -54,7 +59,7 @@ class SearchedtweetsController < ApplicationController
 
     @keyhash = []
     @valueshash = []
-    @sortedhash.first(10).each do |key, value|
+    @sortedhash.first(15).each do |key, value|
       @keyhash.push(key)
       @valueshash.push(value)
     end

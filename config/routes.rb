@@ -10,6 +10,8 @@ TweetSuite::Application.routes.draw do
   get "searchedtweets/_makedata"
   get "searchedtweets/_makedata/:id" => "searchedtweets#makedata"
 
+  get "searchedtweets/_header"
+  get "searchedtweets/_header/:headerid" => "searchedtweets#header"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

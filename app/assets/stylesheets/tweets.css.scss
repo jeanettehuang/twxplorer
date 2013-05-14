@@ -250,3 +250,22 @@ code {
 #id-string {
   display: none;
 }
+
+#graph {
+  height: 450px;
+}
+
+/* Breadcrumbs
+-------------------------------------------------- */
+#breadcrumbs-wrapper {
+  display: inline;
+}
+
+a.breadcrumbs {
+  display: inline;
+}
+
+p.breadcrumb-arrow {
+  display: inline;
+}
+
