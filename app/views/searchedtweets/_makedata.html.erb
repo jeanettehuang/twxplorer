@@ -1,9 +1,13 @@
 <script src="http://code.highcharts.com/stock/highstock.js" type="text/javascript"></script>
 
 <div id="breadcrumbs-wrapper">
-<% @idarray.each do |i| %>
-  <a class="breadcrumbs" id="<%= i %>"><%= i %></a><p class="breadcrumb-arrow"> > </p>
-<% end %>
+  <% @idarray.each do |i| %>
+    <% if i == params[:search] %>
+      <a class ="breadcrumbs" id="<%= @idarray[0] %>"><%= @idarray[0] %></a>
+    <% else %>
+      <p class="breadcrumb-arrow"> > </p><a class="breadcrumbs" id="<%= i %>"><%= i %></a>
+    <% end %>
+  <% end %>
 </div>
 
 <!-- Graph sidebar -->
