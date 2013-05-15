@@ -259,14 +259,30 @@ code {
 /* Breadcrumbs
 -------------------------------------------------- */
 #breadcrumbs-wrapper {
-  display: inline;
+  margin-top: 11px;
+  padding-left: 30px;
+  margin-left: 90px;
 }
 
 a.breadcrumbs {
   display: inline;
+  color: #999999;
+}
+
+a.breadcrumbs:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a.brand {
+  border-right: 1px solid #bebebe;
 }
 
 p.breadcrumb-arrow {
+  color: #ffffff;
   display: inline;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 9px;
 }
 

@@ -8,9 +8,9 @@
       <div id="breadcrumbs-wrapper">
         <% @idarray.each do |i| %>
           <% if i == params[:search] %>
-            <a class ="breadcrumbs" id="<%= @idarray[0] %>"><%= @idarray[0] %></a>
+            <a class ="breadcrumbs active" id="<%= @idarray[0] %>"><%= @idarray[0] %></a>
           <% else %>
-            <p class="breadcrumb-arrow"> > </p><a class="breadcrumbs" id="<%= i %>"><%= i %></a>
+            <p class="breadcrumb-arrow">►</p><a class="breadcrumbs" id="<%= i %>"><%= i %></a>
           <% end %>
         <% end %>
       </div>
@@ -31,6 +31,7 @@
   </div>
 </div>
 
+<!-- Graph and tweets sidebar -->
 <div id = "main-wrap">
   <!-- Graph sidebar -->
   <div id="sidebar">
