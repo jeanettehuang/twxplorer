@@ -30,7 +30,6 @@ src: url('type/HelveticaNeue-Light.ttf'),
   font-family: OstrichRegular;
 	font-size: 100px;
 	margin-top: 50px;
-	margin-bottom: 20px;
 	display: inline;
 	background-image:url('/images/twxplorer-logo.png');
 	background-size:40px 60px;
@@ -182,6 +181,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
   width: 45%;
   border-left: 1px solid #bebebe;
   padding-left: 40px;
+  margin-top: 22px;
 }
 
 #tweet-wrap {
@@ -259,30 +259,33 @@ code {
 /* Breadcrumbs
 -------------------------------------------------- */
 #breadcrumbs-wrapper {
-  margin-top: 11px;
-  padding-left: 30px;
-  margin-left: 90px;
+  height: 23px;
+  background-color: #fcfcfc;
+  width: 200%;
+  text-align: left;
 }
 
 a.breadcrumbs {
   display: inline;
-  color: #999999;
+  color: #000000;
+  padding-top: 2px;
 }
 
 a.breadcrumbs:hover {
-  color: #ffffff;
+  color: #2f7ed8;
   text-decoration: none;
 }
 
-a.brand {
-  border-right: 1px solid #bebebe;
-}
-
 p.breadcrumb-arrow {
-  color: #ffffff;
+  color: #000000;
   display: inline;
   padding-right: 5px;
   padding-left: 5px;
-  font-size: 9px;
+}
+
+#breadcrumbs-text {
+  margin-left: 20px;
+  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
 }
 
