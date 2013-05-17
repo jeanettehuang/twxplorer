@@ -40,6 +40,12 @@ class SearchedtweetsController < ApplicationController
       end
     end
 
+    @stoplisttest = []
+    if params[:stoplistvar] != nil 
+        @stoplisttest = params[:stoplistvar]
+        @stoplisttest.split(";")
+    end
+
     # @searchedtweets = Tweet.order("created_at desc")
 
     @hash = Hash.new(0)
@@ -52,7 +58,7 @@ class SearchedtweetsController < ApplicationController
         word = word.downcase
         # word = word.delete("^a-zA-Z ")
         word = word.gsub(/[^0-9a-z  _@]/i, '')
-        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$')
+        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplisttest.include?(word)
           @hash[word] += 1
         end
       end
