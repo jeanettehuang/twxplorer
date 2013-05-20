@@ -42,3 +42,14 @@ $("a.breadcrumbs").click(function() {
   });
 })
 
+
+$(document).ready(function() {
+  $("#stoplist-submit").click(function() {
+    var oldid = "";
+    $("a.breadcrumbs:not(:first)").each(function() {
+      var currentid = $(this).attr("id");
+      oldid += ":" + currentid;
+    });
+    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
+  })
+});

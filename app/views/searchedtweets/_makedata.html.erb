@@ -1,19 +1,52 @@
+
 <!-- Graph sidebar -->
 <div id="sidebar">
 
+  <!-- Breadcrumbs -->
   <div id="breadcrumbs-wrapper">
     <div id="breadcrumbs-text">
       <% @idarray.each do |i| %>
         <% if i == params[:search] %>
           <a class ="breadcrumbs active" id="<%= @idarray[0] %>"><%= @idarray[0] %></a>
         <% else %>
-          <p class="breadcrumb-arrow">►</p><a class="breadcrumbs" id="<%= i %>"><%= i %></a>
+          <p class="breadcrumb-arrow">/</p><a class="breadcrumbs" id="<%= i %>"><%= i %></a>
         <% end %>
       <% end %>
       </div>
   </div>
 
   <div class="sidebar-wrapper" style="text-align:center">
+    
+    <!-- Hidden stoplist div -->
+    <div id="stoplist-string"><%= @stoplistarray %></div>
+
+    <!-- Stoplist modal -->
+    <div id="stoplist-modal">
+     <!-- Button to trigger modal -->
+      <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal" data-backdrop="true" data-keyboard="true">Exclude words</a>
+      <!-- Modal -->
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Exclude these words from your graph</h3>
+          <h3 style="font-size: 12px">Add as many words as you want, separated by commas.</h3>
+        </div>
+
+        <div class="modal-body">
+          <% if @stoplistarray.empty? %>
+            <textarea rows="3" id="stoplist-text"></textarea>
+          <% else %>
+            <textarea rows="3" id="stoplist-text"><%= @stoplistarray %></textarea>
+          <% end %>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="stoplist-submit">Save changes</button>
+        </div>
+      </div>
+    </div>
+    <!-- End stoplist modal-->
 
     <div class="sidebar-headers">Common Words in Tweets</div>
     <div id="id-string"><%= @oldid %></div>
@@ -26,7 +59,6 @@
       });
     </script>
     <div id="graph"><%= @chart %></div>
-  
   </div>
 </div>
 

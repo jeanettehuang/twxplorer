@@ -181,7 +181,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
   width: 45%;
   border-left: 1px solid #bebebe;
   padding-left: 40px;
-  margin-top: 22px;
+  margin-top: 35px;
 }
 
 #tweet-wrap {
@@ -193,8 +193,9 @@ src: url('type/HelveticaNeue-Light.ttf'),
   font-size: 25px;
   font-family: HelveticaNeue-Light;
   margin-top: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   line-height: 30px;
+  margin-left: 20%;
 }
 
 
@@ -263,29 +264,45 @@ code {
   background-color: #fcfcfc;
   width: 200%;
   text-align: left;
+  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 5px;
+  padding-bottom: 4px;
 }
 
 a.breadcrumbs {
   display: inline;
   color: #000000;
   padding-top: 2px;
+  font-size: 12px;
 }
 
 a.breadcrumbs:hover {
   color: #2f7ed8;
   text-decoration: none;
+  cursor: pointer;
 }
 
 p.breadcrumb-arrow {
-  color: #000000;
+  color: #9c9c9c;
   display: inline;
   padding-right: 5px;
   padding-left: 5px;
+  font-size: 12px;
 }
 
 #breadcrumbs-text {
   margin-left: 20px;
-  border-bottom: 1px solid #f2f2f2;
-  border-top: 1px solid #f2f2f2;
 }
 
+#stoplist-modal {
+  float: right;
+}
+
+#stoplist-text {
+  width: 441px;
+}
+
+#stoplist-string {
+  display: none;
+}
