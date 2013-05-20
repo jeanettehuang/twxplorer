@@ -40,17 +40,46 @@ class SearchedtweetsController < ApplicationController
       end
     end
 
-    @stoplistarray = []
-    if params[:stoplistvar] != nil
-      @stoplistarray = params[:stoplistvar]
-      @stoplistarray.split(',')
-    end
+    @stoplistarray = ""
+    @searchedtweetscopy = []
+   if params[:stoplistvar] != nil
+     @stoplistarray = []
+     @stoplistarray = params[:stoplistvar]
+     @stoplistarray.split(',')
 
-    # @searchedtweets = Tweet.order("created_at desc")
+     @searchedtweets.each do |entry|
+        @temparray = []
+        @temparray = entry.text.split(' ')
+        wordFound = false
+
+        @temparray.each do |word|
+          word = word.downcase
+          word = word.gsub(/[^0-9a-z  _@]/i, '')
+          if @stoplistarray.include?(word)
+            wordFound = true
+            puts wordFound
+            puts "skipping--------------------------------"
+            puts entry.text
+            break
+          end
+        end
+
+        if wordFound == false
+          puts "SAVING************************************"
+          puts entry.text
+          @searchedtweetscopy.push(entry)
+        end
+
+     end
+     # @searchedtweetscopy = @searchedtweets
+
+   else
+      @searchedtweetscopy = @searchedtweets
+   end
 
     @hash = Hash.new(0)
     @text_array = []
-    @searchedtweets.each do |entry|
+    @searchedtweetscopy.each do |entry|
       @text_array.push(entry.text.split(' '))
     end
     @text_array.each do |tweet|
