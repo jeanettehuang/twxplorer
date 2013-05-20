@@ -28,13 +28,13 @@ $("a.breadcrumbs").click(function() {
   var oldid = "";
   // $('a.breadcrumbs').first().remove();
   if (stopid == $('.search-input').val()) {
-    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + stopid, function(response) { $('#main-wrap').html(response);}, 'html');
+    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + stopid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
   }
   $("a.breadcrumbs:not(:first)").each(function() {
     var currentid = $(this).attr("id");
     if (currentid == stopid) {
       oldid += ":" + currentid;
-      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid, function(response) { $('#main-wrap').html(response);}, 'html');
+      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
     }
     else {
       oldid += ":" + currentid;
