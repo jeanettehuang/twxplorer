@@ -43,7 +43,29 @@ $("a.breadcrumbs").click(function() {
 })
 
 
+$('a.dropdown-toggle').click(function(event) {
+  $('ul#menu1').toggle();  
+    // $('ul#menu1').addClass("activeMenu");
+})
+
+// $(document).mouseup(function(e){
+  // if ($('ul#menu1').hasClass("activeMenu")) {
+  //   // $("ul#menu1").removeClass("activeMenu");
+  //   $("ul#menu1").toggle();
+  // }
+//   var container = $("ul#menu1");
+//    if (container.has(e.target).length === 0) {
+//       container.toggle();
+//    }
+// })
+
+
+
 $(document).ready(function() {
+  $("a.past-searches").click(function() {
+   // $.get('/searchedtweets/_makedata?search=' + $(this).attr("id"), function(response) { $('#main-wrap').html(response);}, 'html');
+    window.location.href = "http://localhost:3000/searchedtweets/index?search=" + $(this).attr("id");
+  });
   $("#stoplist-submit").click(function() {
     var oldid = "";
     $("a.breadcrumbs:not(:first)").each(function() {
@@ -53,3 +75,4 @@ $(document).ready(function() {
     $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
   })
 });
+

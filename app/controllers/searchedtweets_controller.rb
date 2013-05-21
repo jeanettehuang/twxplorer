@@ -12,6 +12,8 @@ class SearchedtweetsController < ApplicationController
   end
 
   def makedata
+    @pastsearches = Tweet.find_by_sql(["SELECT DISTINCT query FROM tweets"])
+
     @oldid = ""
     @titletext = ""
     @catchempty = ""
@@ -19,7 +21,7 @@ class SearchedtweetsController < ApplicationController
 
     if params[:id].nil?
       if params[:search] != nil 
-      #  system "rake loadtweetdb[" + params[:search] + "]"
+       system "rake loadtweetdb[" + params[:search] + "]"
       end
       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
       @oldid = params[:search]

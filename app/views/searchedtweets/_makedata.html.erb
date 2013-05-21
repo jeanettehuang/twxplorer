@@ -15,23 +15,35 @@
       </div>
   </div>
 
+<!-- Hidden stoplist div -->
+
   <div class="sidebar-wrapper" style="text-align:center">
 
     <!-- Hidden stoplist div -->
     <div id="stoplist-string"><%= @stoplistarray %></div>
+    
+    <!-- Dropdown -->
+    <ul class="nav pull-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle btn btn-small" role="button" data-toggle="dropdown" data-keyboard="true" data-keyboard="true" href="#">More <b class="caret"></b></a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#excludeModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">Exclude words</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#pastSearchModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">View past searches</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- End dropdown -->
 
     <!-- Stoplist modal -->
     <div id="stoplist-modal">
      <!-- Button to trigger modal -->
-      <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal" data-backdrop="true" data-keyboard="true">Exclude words</a>
       <!-- Modal -->
-      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div id="excludeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel">Exclude these words from your graph</h3>
           <h3 style="font-size: 12px">Add as many words as you want, separated by commas.</h3>
         </div>
-
         <div class="modal-body">
           <% if @stoplistarray.empty? %>
             <textarea rows="3" id="stoplist-text"></textarea>
@@ -39,14 +51,34 @@
             <textarea rows="3" id="stoplist-text"><%= @stoplistarray %></textarea>
           <% end %>
         </div>
-
         <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-          <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="stoplist-submit">Save changes</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="stoplist-submit">Save changes</button>
         </div>
       </div>
     </div>
     <!-- End stoplist modal-->
+
+    <!-- Past searches modal -->
+    <div id="past-search-modal">
+      <div id="pastSearchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="pastSearchLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="pastSearchLabel">Search History</h3>
+          <h3 style="font-size: 12px">Click to view results.</h3>
+        </div>
+        <div class="modal-body">
+          <% @pastsearches.each do |search| %>
+            <a class="past-searches" id="<%= search.query %>"><%= search.query %></a><br>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <!-- <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="stoplist-submit2">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+    <!-- End past searches modal-->
 
     <div class="sidebar-headers">Common Words in Tweets</div>
     <div id="id-string"><%= @oldid %></div>
