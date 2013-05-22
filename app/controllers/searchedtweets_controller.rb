@@ -36,12 +36,12 @@ class SearchedtweetsController < ApplicationController
         @titletext += ' and "' + i + '"'
       end
 
-      @sqlquery += " ORDER BY created_at"
       @idarray.insert(0, params[:search]) # add search param to front of array
-      @searchedtweets = Tweet.where(@sqlquery)
+      @searchedtweets = Tweet.where(@sqlquery).order('created_at asc')
       if @searchedtweets.count == 0
         @catchempty = "No Results Found"
       end
+
     end
 
     @stoplistarray = ""
@@ -61,16 +61,16 @@ class SearchedtweetsController < ApplicationController
           word = word.gsub(/[^0-9a-z  _@]/i, '')
           if @stoplistarray.include?(word)
             wordFound = true
-            puts wordFound
-            puts "skipping--------------------------------"
-            puts entry.text
+            # puts wordFound
+            # puts "skipping--------------------------------"
+            # puts entry.text
             break
           end
         end
 
         if wordFound == false
-          puts "SAVING************************************"
-          puts entry.text
+          # puts "SAVING************************************"
+          # puts entry.text
           @searchedtweetscopy.push(entry)
         end
 
