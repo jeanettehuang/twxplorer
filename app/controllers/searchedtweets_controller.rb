@@ -35,6 +35,8 @@ class SearchedtweetsController < ApplicationController
         @sqlquery += " AND text LIKE '%" + i + "%'"
         @titletext += ' and "' + i + '"'
       end
+
+      @sqlquery += " ORDER BY created_at"
       @idarray.insert(0, params[:search]) # add search param to front of array
       @searchedtweets = Tweet.where(@sqlquery)
       if @searchedtweets.count == 0
