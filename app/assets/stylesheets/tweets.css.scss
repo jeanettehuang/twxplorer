@@ -295,6 +295,10 @@ p.breadcrumb-arrow {
   margin-left: 20px;
 }
 
+
+/* Stoplist modal
+-------------------------------------------------- */
+
 #stoplist-modal {
   float: right;
 }
@@ -309,4 +313,11 @@ p.breadcrumb-arrow {
 
 #stoplist-string {
   display: none;
+}
+
+
+/* Past searches modal
+-------------------------------------------------- */
+a.past-searches {
+  cursor: pointer;
 }

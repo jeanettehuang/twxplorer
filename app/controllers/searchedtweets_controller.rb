@@ -23,7 +23,7 @@ class SearchedtweetsController < ApplicationController
       if params[:search] != nil 
        system "rake loadtweetdb[" + params[:search] + "]"
       end
-      @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "'"])
+      @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' ORDER BY created_at"])
       @oldid = params[:search]
       @idarray.push(@oldid)
     else
