@@ -62,9 +62,9 @@ $('a.dropdown-toggle').click(function(event) {
 
 
 $(document).ready(function() {
-  $("a.past-searches").click(function() {
-   // $.get('/searchedtweets/_makedata?search=' + $(this).attr("id"), function(response) { $('#main-wrap').html(response);}, 'html');
-    window.location.href = "http://localhost:3000/searchedtweets/index?search=" + $(this).attr("id");
+  $("a.inserted-at").click(function() {
+    var stoplistvar = "";
+    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('.search-input').val() + '&stoplistvar=' + stoplistvar + '&snapshot=' + $(this).attr("id"), function(response) { $('#main-wrap').html(response);}, 'html');
   });
   $("#stoplist-submit").click(function() {
     var oldid = "";

@@ -12,7 +12,7 @@ class SearchedtweetsController < ApplicationController
   end
 
   def makedata
-    @pastsearches = Tweet.find_by_sql(["SELECT DISTINCT query FROM tweets"])
+    @pastsearches = Tweet.find_by_sql(["SELECT distinct inserted_at,query from tweets where query='" + params[:search] + "'"])
 
     @oldid = ""
     @titletext = ""
@@ -20,13 +20,17 @@ class SearchedtweetsController < ApplicationController
     @idarray = []
 
     if params[:id].nil?
-      if params[:search] != nil 
-       system "rake loadtweetdb[" + params[:search] + "]"
+      if params[:search] != nil
+        system "rake loadtweetdb[" + params[:search] + "]"
       end
       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' ORDER BY created_at"])
       @oldid = params[:search]
       @idarray.push(@oldid)
     else
+      if params[:snapshot] != nil
+        @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' AND inserted_at='" + params[:snapshot] + "' ORDER BY created_at"])  
+        @searchtime = params[:snapshot].to_date
+      end
       @sqlquery = "query ='" + params[:search] + "'"
       @oldid = params[:id]
       @idarray = @oldid.split(':')
@@ -58,19 +62,20 @@ class SearchedtweetsController < ApplicationController
 
         @temparray.each do |word|
           word = word.downcase
-          word = word.gsub(/[^0-9a-z  _@]/i, '')
+          # word = word.gsub(/[^0-9a-z  _@]/i, '')
           if @stoplistarray.include?(word)
             wordFound = true
-            # puts wordFound
-            # puts "skipping--------------------------------"
-            # puts entry.text
+            puts wordFound
+            puts word
+            puts "skipping--------------------------------"
+            puts entry.text
             break
           end
         end
 
         if wordFound == false
-          # puts "SAVING************************************"
-          # puts entry.text
+          puts "SAVING************************************"
+          puts entry.text
           @searchedtweetscopy.push(entry)
         end
 

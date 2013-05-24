@@ -10,6 +10,7 @@ class CreateTweets < ActiveRecord::Migration
       t.string :query
       t.string :avatar
       t.string :name
+      t.date :inserted_at
 
       t.timestamps
     end

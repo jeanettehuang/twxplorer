@@ -13,7 +13,7 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
     config.oauth_token_secret = 'eHyhAeJ6LzbFaaCuRyyniZTepxiUjmElkk3R7YllCek'
   end
 
-  Twitter.search(args[:mysearch], :count => 100).results.map do |status| 
+  Twitter.search(args[:mysearch], :count => 5).results.map do |status| 
     begin
       if status.user.lang == "en"
       unless Tweet.exists?(['guid = ? AND text = ?', status[:id], status.text])
@@ -26,7 +26,8 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
         :guid => status[:id],
         :query => args[:mysearch],
         :avatar => status.profile_image_url,
-        :name => status.user.name
+        :name => status.user.name,
+        :inserted_at => DateTime.now.to_date
         })
         puts "[#{status.user.screen_name}] #{status.text}"
       end # end unless

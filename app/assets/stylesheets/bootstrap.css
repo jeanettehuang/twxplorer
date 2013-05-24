@@ -5188,7 +5188,7 @@ input[type="submit"].btn.btn-mini {
   bottom: 0;
   left: 0;
   z-index: 1040; 
-  background-color: #bebebe; 
+  background-color: #000000; 
 }
 
 .modal-backdrop.fade {

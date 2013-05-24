@@ -42,7 +42,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel">Exclude these words from your graph</h3>
-          <h3 style="font-size: 12px">Add as many words as you want, separated by commas.</h3>
+          <h3 style="font-size: 14px">Add as many words as you want, separated by commas.</h3>
         </div>
         <div class="modal-body">
           <% if @stoplistarray.empty? %>
@@ -65,11 +65,11 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="pastSearchLabel">Search History</h3>
-          <h3 style="font-size: 12px">Click to view results.</h3>
+          <h3 style="font-size: 14px">Click to view past results for "<%= params[:search] %>".</h3>
         </div>
         <div class="modal-body">
           <% @pastsearches.each do |search| %>
-            <a class="past-searches" id="<%= search.query %>"><%= search.query %></a><br>
+            <a class="inserted-at" id="<%= search.inserted_at %>"><%= search.inserted_at.strftime("%B %d, %Y") %></a><br>
           <% end %>
         </div>
         <div class="modal-footer">
@@ -80,7 +80,11 @@
     </div>
     <!-- End past searches modal-->
 
-    <div class="sidebar-headers">Common Words in Tweets</div>
+    <% if params[:snapshot].nil? %>
+      <div class="sidebar-headers">Common Words in Tweets</div>
+    <% else %>
+      <div class="sidebar-headers">Common Words in Tweets from <%= @searchtime.strftime("%B %d, %Y") %></div>
+    <% end %>
     <div id="id-string"><%= @oldid %></div>
     <script type="text/javascript">
       jQuery(document).ready(function(){
