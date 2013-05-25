@@ -121,7 +121,7 @@ class SearchedtweetsController < ApplicationController
       chart.legend(enabled: false)
       chart.tooltip(formatter: "function() { s='<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; return s;}")
       chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {
-        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('#id-string').text() + ':' + this.category + '&stoplistvar=' + $('#stoplist-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('#id-string').text() + ':' + this.category + '&stoplistvar=' + $('#stoplist-string').text() + '&snapshot=' + $('#snapshot-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
           }".squish}}})
 
     end
