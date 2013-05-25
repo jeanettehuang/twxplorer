@@ -45,17 +45,16 @@ class SearchedtweetsController < ApplicationController
       if @searchedtweets.count == 0
         @catchempty = "No Results Found"
       end
-
     end
 
-  @stoplistarray = ""
-  @searchedtweetscopy = []
-  if params[:stoplistvar] != nil
-   @stoplistarray = []
-   @stoplistarray = params[:stoplistvar]
-   @stoplistarray.split(',')
+    @stoplistarray = ""
+    @searchedtweetscopy = []
+    if params[:stoplistvar] != nil
+    @stoplistarray = []
+    @stoplistarray = params[:stoplistvar]
+    @stoplistarray.split(',')
 
-   @searchedtweets.each do |entry|
+    @searchedtweets.each do |entry|
       @temparray = []
       @temparray = entry.text.split(' ')
       wordFound = false
@@ -71,11 +70,10 @@ class SearchedtweetsController < ApplicationController
       if wordFound == false
         @searchedtweetscopy.push(entry)
       end
-
-   end
-   else
+    end
+    else
       @searchedtweetscopy = @searchedtweets
-   end
+    end
 
     @hash = Hash.new(0)
     @text_array = []
@@ -105,7 +103,6 @@ class SearchedtweetsController < ApplicationController
       chart.title('')
       chart.credits(enabled: false)
       chart.xAxis(categories: @keyhash)
-      # chart.scrollbar(enabled: true)
       chart.yAxis(title: 'Word Count', min: 0)
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)
@@ -118,8 +115,6 @@ class SearchedtweetsController < ApplicationController
         $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('#id-string').text() + ':' + this.category + '&stoplistvar=' + $('#stoplist-string').text() + '&snapshot=' + $('#snapshot-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
       }
       }".squish}}})
-
     end
   end
-
 end
