@@ -48,40 +48,31 @@ class SearchedtweetsController < ApplicationController
 
     end
 
-    @stoplistarray = ""
-    @searchedtweetscopy = []
-   if params[:stoplistvar] != nil
-     @stoplistarray = []
-     @stoplistarray = params[:stoplistvar]
-     @stoplistarray.split(',')
+  @stoplistarray = ""
+  @searchedtweetscopy = []
+  if params[:stoplistvar] != nil
+   @stoplistarray = []
+   @stoplistarray = params[:stoplistvar]
+   @stoplistarray.split(',')
 
-     @searchedtweets.each do |entry|
-        @temparray = []
-        @temparray = entry.text.split(' ')
-        wordFound = false
+   @searchedtweets.each do |entry|
+      @temparray = []
+      @temparray = entry.text.split(' ')
+      wordFound = false
 
-        @temparray.each do |word|
-          word = word.downcase
-          # word = word.gsub(/[^0-9a-z  _@]/i, '')
-          if @stoplistarray.include?(word)
-            wordFound = true
-            puts wordFound
-            puts word
-            puts "skipping--------------------------------"
-            puts entry.text
-            break
-          end
+      @temparray.each do |word|
+        word = word.downcase
+        if @stoplistarray.include?(word)
+          wordFound = true
+          break
         end
+      end
 
-        if wordFound == false
-          puts "SAVING************************************"
-          puts entry.text
-          @searchedtweetscopy.push(entry)
-        end
+      if wordFound == false
+        @searchedtweetscopy.push(entry)
+      end
 
-     end
-     # @searchedtweetscopy = @searchedtweets
-
+   end
    else
       @searchedtweetscopy = @searchedtweets
    end
@@ -94,7 +85,6 @@ class SearchedtweetsController < ApplicationController
     @text_array.each do |tweet|
       tweet.each do |word|
         word = word.downcase
-        # word = word.delete("^a-zA-Z ")
         word = word.gsub(/[^0-9a-z  _@]/i, '')
         unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplistarray.include?(word)
           @hash[word] += 1
@@ -121,8 +111,13 @@ class SearchedtweetsController < ApplicationController
       chart.legend(enabled: false)
       chart.tooltip(formatter: "function() { s='<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y; return s;}")
       chart.plotOptions(bar: {cursor: 'pointer', point: { events: {click: "function() {
+        if ($('#snapshot-string').text() == '') {
+          $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('#id-string').text() + ':' + this.category + '&stoplistvar=' + $('#stoplist-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
+      }
+      else {
         $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('#id-string').text() + ':' + this.category + '&stoplistvar=' + $('#stoplist-string').text() + '&snapshot=' + $('#snapshot-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
-          }".squish}}})
+      }
+      }".squish}}})
 
     end
   end

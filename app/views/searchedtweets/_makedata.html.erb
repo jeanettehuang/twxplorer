@@ -20,9 +20,13 @@
   <div class="sidebar-wrapper" style="text-align:center">
 
     <!-- Hidden stoplist div -->
-    <div id="stoplist-string"><%= @stoplistarray %></div>
-    <div id="snapshot-string"><%= params[:snapshot] %></div>
-    
+    <div id="stoplist-string"></div>
+    <% if params[:snapshot].nil? %>
+      <div id="snapshot-string"></div>
+    <% else %>
+      <div id="snapshot-string"><%= params[:snapshot] %></div>
+    <% end %>
+
     <!-- Dropdown -->
     <ul class="nav pull-right">
       <li class="dropdown">
