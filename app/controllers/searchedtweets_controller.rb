@@ -43,6 +43,10 @@ class SearchedtweetsController < ApplicationController
       end
 
       @idarray.insert(0, params[:search]) # add search param to front of array
+
+      puts "QUERY IS ********************************************************"
+      puts @sqlquery
+
       @searchedtweets = Tweet.where(@sqlquery).order('created_at asc')
       if @searchedtweets.count == 0
         @catchempty = "No Results Found"

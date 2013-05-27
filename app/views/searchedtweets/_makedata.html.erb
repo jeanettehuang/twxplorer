@@ -79,7 +79,7 @@
     </div>
     <!-- End past searches modal-->
 
-    <% if params[:snapshot].nil? %>
+    <% if @searchtime.nil? %>
       <div class="sidebar-headers">Common Words in Tweets</div>
     <% else %>
       <div class="sidebar-headers">Common Words in Tweets from <%= @searchtime.strftime("%B %d, %Y") %></div>

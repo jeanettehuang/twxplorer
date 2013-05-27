@@ -15,13 +15,26 @@ $("a.breadcrumbs").click(function() {
   var stopid = $(this).attr("id");
   var oldid = "";
   if (stopid == $('.search-input').val()) {
-    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + stopid + '&stoplistvar=' + $("#stoplist-text").val() + '&snapshot=' + $('#snapshot-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
+      var snapshot = $('#snapshot-string').text();
+      if (snapshot == '') {
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
+      }
+      else {
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val() + '&snapshot=' + snapshot, function(response) { $('#main-wrap').html(response);}, 'html');
+      }
   }
   $("a.breadcrumbs:not(:first)").each(function() {
     var currentid = $(this).attr("id");
     if (currentid == stopid) {
       oldid += ":" + currentid;
-      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val() + '&snapshot=' + $('#snapshot-string').text(), function(response) { $('#main-wrap').html(response);}, 'html');
+
+      var snapshot = $('#snapshot-string').text();
+      if (snapshot == '') {
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
+      }
+      else {
+        $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val() + '&snapshot=' + snapshot, function(response) { $('#main-wrap').html(response);}, 'html');
+      }
     }
     else {
       oldid += ":" + currentid;
