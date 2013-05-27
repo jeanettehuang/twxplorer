@@ -21,7 +21,8 @@ class SearchedtweetsController < ApplicationController
 
     if params[:id].nil?
       if params[:search] != nil
-        system "rake loadtweetdb[" + params[:search] + "]"
+        @searchterm = params[:search]
+        system "rake loadtweetdb['" +  params[:search] + "']"
       end
       @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' ORDER BY created_at"])
       @oldid = params[:search]
@@ -43,9 +44,6 @@ class SearchedtweetsController < ApplicationController
       end
 
       @idarray.insert(0, params[:search]) # add search param to front of array
-
-      puts "QUERY IS ********************************************************"
-      puts @sqlquery
 
       @searchedtweets = Tweet.where(@sqlquery).order('created_at asc')
       if @searchedtweets.count == 0
@@ -86,11 +84,13 @@ class SearchedtweetsController < ApplicationController
     @searchedtweetscopy.each do |entry|
       @text_array.push(entry.text.split(' '))
     end
+    @paramsSearchArray = params[:search]
+    @paramsSearchArray = @paramsSearchArray.split(' ')
     @text_array.each do |tweet|
       tweet.each do |word|
         word = word.downcase
         word = word.gsub(/[^0-9a-z  _@]/i, '')
-        unless STOPLIST.include?(word) or word == params[:search] or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplistarray.include?(word)
+        unless STOPLIST.include?(word) or @paramsSearchArray.include?(word) or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplistarray.include?(word)
           @hash[word] += 1
         end
       end
