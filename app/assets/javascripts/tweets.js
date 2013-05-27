@@ -10,7 +10,6 @@ function validate() {
   return true;
 }
 
-// Fixing dropdown toggling 
 $("a.breadcrumbs").click(function() {
   var stopid = $(this).attr("id");
   var oldid = "";
@@ -49,6 +48,7 @@ $('a.dropdown-toggle').click(function(event) {
 
 // Stoplist
 $(document).ready(function() {
+  $('.modal-backdrop').remove();
   $("a.inserted-at").click(function() {
     var stoplistvar = "";
     $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + $('.search-input').val() + '&stoplistvar=' + stoplistvar + '&snapshot=' + $(this).attr("id"), function(response) { $('#main-wrap').html(response);}, 'html');
