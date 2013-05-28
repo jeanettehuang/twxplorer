@@ -17,7 +17,13 @@
   <div class="sidebar-wrapper" style="text-align:center">
 
     <!-- Hidden stoplist div -->
-    <div id="stoplist-string"></div>
+    <% if params[:snapshot].nil? %>
+      <div id="stoplist-string"></div>
+    <% else %>
+      <div id="stoplist-string"><%= params[:stoplistvar] %></div>
+    <% end %>
+
+    <!-- Hidden snapshot div -->
     <% if params[:snapshot].nil? %>
       <div id="snapshot-string"></div>
     <% else %>

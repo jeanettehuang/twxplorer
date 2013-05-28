@@ -59,6 +59,11 @@ $(document).ready(function() {
       var currentid = $(this).attr("id");
       oldid += ":" + currentid;
     });
-    $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
+    var snapshot = $('#snapshot-string').text();
+    if (snapshot == '') {
+      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val(), function(response) { $('#main-wrap').html(response);}, 'html');
+    } else {
+      $.get('/searchedtweets/_makedata?search=' + $('.search-input').val() + '&id=' + oldid + '&stoplistvar=' + $("#stoplist-text").val() + '&snapshot=' + snapshot, function(response) { $('#main-wrap').html(response);}, 'html');
+    }
   })
 });
