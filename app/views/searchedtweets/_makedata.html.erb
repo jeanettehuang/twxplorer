@@ -74,8 +74,12 @@
           <h3 style="font-size: 14px">Click to view past results for "<%= params[:search] %>"</h3>
         </div>
         <div class="modal-body">
-          <% @pastsearches.each do |search| %>
-            <a class="inserted-at" id="<%= search.inserted_at %>"><%= search.inserted_at.strftime("%B %d, %Y") %></a><br>
+          <% if @pastsearches.empty? %>
+            <p>There have been no past searches for this query.</p>
+          <% else %>
+            <% @pastsearches.each do |search| %>
+              <a class="inserted-at" id="<%= search.inserted_at %>"><%= search.inserted_at.strftime("%B %d, %Y") %></a><br>
+            <% end %>
           <% end %>
         </div>
         <div class="modal-footer">
