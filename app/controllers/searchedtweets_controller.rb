@@ -79,6 +79,8 @@ class SearchedtweetsController < ApplicationController
       @searchedtweetscopy = @searchedtweets
     end
 
+    @searchedtweetscount = @searchedtweetscopy.count
+
     @hash = Hash.new(0)
     @text_array = []
     @searchedtweetscopy.each do |entry|
@@ -108,7 +110,7 @@ class SearchedtweetsController < ApplicationController
       chart.chart(renderTo: 'graph', plotShadow: true)
       chart.title('')
       chart.credits(enabled: false)
-      chart.xAxis(categories: @keyhash)
+      chart.xAxis(labels: {style: {}}, categories: @keyhash)
       chart.yAxis(title: 'Word Count', min: 0)
       chart.series(name: 'Word Count', yAxis: 0, type: 'bar', data: @valueshash)
       chart.legend(enabled: false)

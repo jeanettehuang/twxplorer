@@ -77,7 +77,7 @@
           <% if @pastsearches.empty? %>
             <p>There have been no past searches for this query.</p>
           <% else %>
-            <% @pastsearches.each do |search| %>
+            <% @pastsearches.reverse.each do |search| %>
               <a class="inserted-at" id="<%= search.inserted_at %>"><%= search.inserted_at.strftime("%B %d, %Y") %></a><br>
             <% end %>
           <% end %>
@@ -90,9 +90,9 @@
     <!-- End past searches modal-->
 
     <% if @searchtime.nil? %>
-      <div class="sidebar-headers">Common Words in Tweets</div>
+      <div class="sidebar-headers">Common Words in Tweets<br></div>
     <% else %>
-      <div class="sidebar-headers">Common Words in Tweets from <%= @searchtime.strftime("%B %d, %Y") %></div>
+      <div class="sidebar-headers">Common Words in Tweets from <%= @searchtime.strftime("%B %d, %Y") %><br></div>
     <% end %>
     <div id="id-string"><%= @oldid %></div>
     <script type="text/javascript">
@@ -111,6 +111,7 @@
 <div id="content-wrap">
   <div class="sidebar-headers tweets">What People Are Saying</div>
   <div id="tweet-wrap">
+    <p class="tweetcount">Found <%= @searchedtweetscopy.count %> tweets</p>
     <% @searchedtweetscopy.reverse.each do |tweet| %>
       <div class="<%=cycle('odd', '')%> single-tweet">
         <img src="<%= tweet.avatar %>" class="avatar"></img>
