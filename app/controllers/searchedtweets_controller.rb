@@ -3,12 +3,8 @@ require 'stoplist'
 class SearchedtweetsController < ApplicationController
   before_filter :index
   before_filter :makedata
-  before_filter :header
 
   def index
-  end
-  
-  def header
   end
 
   def makedata
@@ -30,7 +26,7 @@ class SearchedtweetsController < ApplicationController
     else
       @sqlquery = "query ='" + params[:search] + "'"
       if params[:snapshot] != nil
-        @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' AND inserted_at='" + params[:snapshot] + "' ORDER BY created_at"])  
+        # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' AND inserted_at='" + params[:snapshot] + "' ORDER BY created_at"])  
         @searchtime = params[:snapshot].to_date
         @sqlquery += " AND inserted_at ='" + params[:snapshot] +"'"
       end
@@ -78,8 +74,6 @@ class SearchedtweetsController < ApplicationController
     else
       @searchedtweetscopy = @searchedtweets
     end
-
-    @searchedtweetscount = @searchedtweetscopy.count
 
     @hash = Hash.new(0)
     @text_array = []

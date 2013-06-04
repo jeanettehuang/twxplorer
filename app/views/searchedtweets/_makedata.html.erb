@@ -37,6 +37,7 @@
         <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#excludeModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">Exclude words</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#pastSearchModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">View past searches</a></li>
+          <li role="presentation"><%= link_to 'Export tweets', {:controller => 'export', :action => 'exporttweets', :format => :csv, :stoplist => params[:stoplistvar], :searchterm => params[:search], :snapshot => params[:snapshot]} %></li>
         </ul>
       </li>
     </ul>

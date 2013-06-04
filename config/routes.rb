@@ -13,6 +13,8 @@ TweetSuite::Application.routes.draw do
   get "searchedtweets/_header"
   get "searchedtweets/_header/:headerid" => "searchedtweets#header"
 
+  match '/export/exporttweets', :controller => 'export', :action => 'exporttweets'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
