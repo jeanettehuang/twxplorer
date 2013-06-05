@@ -86,8 +86,15 @@ class SearchedtweetsController < ApplicationController
       tweet.each do |word|
         word = word.downcase
         word = word.gsub(/[^0-9a-z  _@]/i, '')
-        unless STOPLIST.include?(word) or @paramsSearchArray.include?(word) or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplistarray.include?(word)
-          @hash[word] += 1
+        unless STOPLIST.include?(word) or @paramsSearchArray.include?(word) or word == "#" + params[:search] or @idarray.include?(word) or word.index('htt') or word.match('^[0-9]+$') or @stoplistarray.include?(word) or word.include?("@")
+          @paramsSearchArray.each do |i|
+            if word.include?(i)
+              @hash.delete(word)
+              break
+            else
+              @hash[word] += 1
+            end
+          end
         end
       end
     end
