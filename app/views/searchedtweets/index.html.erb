@@ -5,27 +5,61 @@
 
   <!-- Navbar -->
   <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li class="">
-                  <a href="#">About the team</a>
-                </li>
-                <li class="">
-                  <a href="#">How it works</a>
-                </li>
-              </ul>
-            </div>
-            <a class="brand" href="#" style="">twXplorer</a>
-          </div>
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="#aboutUsModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">About the team</a>
+            </li>
+            <li class="">
+              <a href="#howItWorksModal" data-toggle="modal" data-backdrop="true" data-keyboard="true">How it works</a>
+            </li>
+          </ul>
+        </div>
+        <a class="brand" href="/tweets/index" style="">twXplorer</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- About us modal -->
+    <div id="about-us-modal">
+      <div id="aboutUsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="aboutUsLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="aboutUsLabel">About the team</h3>
+        </div>
+        <div class="modal-body">
+          Coming soon!
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
       </div>
+    </div>
+    <!-- About us searches modal-->
+
+    <!-- How it works modal -->
+    <div id="how-it-works-modal">
+      <div id="howItWorksModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="howItWorksLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="howItWorksLabel">How it works</h3>
+        </div>
+        <div class="modal-body">
+          Coming soon!
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+    </div>
+    <!-- How it works modal-->
 
   <!-- Search bar -->
   <div id="search-bar-wrapper">
