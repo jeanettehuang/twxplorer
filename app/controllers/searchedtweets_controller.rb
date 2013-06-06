@@ -27,8 +27,12 @@ class SearchedtweetsController < ApplicationController
       @sqlquery = "query ='" + params[:search] + "'"
       if params[:snapshot] != nil
         # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' AND inserted_at='" + params[:snapshot] + "' ORDER BY created_at"])  
-        @searchtime = params[:snapshot].to_date
-        @sqlquery += " AND inserted_at ='" + params[:snapshot] +"'"
+        if params[:snapshot] == 'alltweets'
+          #
+        else
+          @searchtime = params[:snapshot].to_date
+          @sqlquery += " AND inserted_at ='" + params[:snapshot] +"'"
+        end
       end
 
       @oldid = params[:id]

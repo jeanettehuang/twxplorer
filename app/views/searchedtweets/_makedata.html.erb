@@ -78,6 +78,7 @@
           <% if @pastsearches.empty? %>
             <p>There have been no past searches for this query.</p>
           <% else %>
+              <a class="inserted-at" id="alltweets">View all results</a><br><br>
             <% @pastsearches.reverse.each do |search| %>
               <a class="inserted-at" id="<%= search.inserted_at %>"><%= search.inserted_at.strftime("%B %d, %Y") %></a><br>
             <% end %>
