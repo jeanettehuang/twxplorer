@@ -11,8 +11,8 @@ gem 'tweetstream'
 gem 'twitter'
 gem 'highcharts-js-rails', '~> 1.0.0'
 
-gem 'sass-rails', '~> 3.2'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+# gem 'sass-rails', '~> 3.2'
+# gem 'bootstrap-sass', '~> 2.3.1.0'
 
 group :assets do
   gem 'sass-rails', '~> 3.2'
