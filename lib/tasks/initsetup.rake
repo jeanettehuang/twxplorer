@@ -16,7 +16,7 @@ task :loadtweetdb, [:mysearch] => [:environment] do |t, args|
   Twitter.search(args[:mysearch], :count => 100).results.map do |status| 
     begin
       if status.user.lang == "en"
-      unless Tweet.exists?(['guid = ? AND text = ?', status[:id], status.text])
+      unless Tweet.exists?(["guid = ? AND text = ?", status[:id].to_s, status.text])
         Tweet.create!({
         :text => status.text,
         :username => status.user.screen_name,

@@ -5,10 +5,9 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'yaml_db'
+gem 'pg'
 gem 'tweetstream'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
 gem 'twitter'
 gem 'highcharts-js-rails', '~> 1.0.0'
 
