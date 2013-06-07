@@ -8,7 +8,7 @@ class SearchedtweetsController < ApplicationController
   end
 
   def makedata
-    @pastsearches = Tweet.find_by_sql(["SELECT distinct inserted_at,query from tweets where query='" + params[:search] + "'"])
+    @pastsearches = Tweet.select([:inserted_at, :query]).uniq.where("query='" + params[:search] + "'")
 
     @oldid = ""
     @titletext = ""
@@ -20,15 +20,14 @@ class SearchedtweetsController < ApplicationController
         @searchterm = params[:search]
         system "rake loadtweetdb['" +  params[:search] + "']"
       end
-      @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' ORDER BY created_at"])
+      @searchedtweets = Tweet.where("query='" + params[:search] +"'").order('created_at asc')
       @oldid = params[:search]
       @idarray.push(@oldid)
     else
       @sqlquery = "query ='" + params[:search] + "'"
       if params[:snapshot] != nil
-        # @searchedtweets = Tweet.find_by_sql(["SELECT * FROM tweets WHERE query='" + params[:search] + "' AND inserted_at='" + params[:snapshot] + "' ORDER BY created_at"])  
         if params[:snapshot] == 'alltweets'
-          #
+          # 
         else
           @searchtime = params[:snapshot].to_date
           @sqlquery += " AND inserted_at ='" + params[:snapshot] +"'"
