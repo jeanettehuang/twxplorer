@@ -8,7 +8,7 @@ class SearchedtweetsController < ApplicationController
   end
 
   def makedata
-    @pastsearches = Tweet.select([:inserted_at, :query]).uniq.where("query='" + params[:search] + "'")
+    @pastsearches = Tweet.select([:inserted_at, :query]).uniq.where("query='" + params[:search] + "'").order('inserted_at')
 
     @oldid = ""
     @titletext = ""
