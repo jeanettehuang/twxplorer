@@ -1,6 +1,6 @@
 ## twXplorer
 
-twXplorer is a tool that improves upon the current Twitter search. Searching for a topic on Twitter returns a page of noisy results with no clear indication as to what the trending tweets for the topic are and is difficult to find exactly what the user is looking for. twXplorer addresses the shortcomings of the existing Twitter search functionality by enabling users to explore deeper within their results. 
+twXplorer is a tool that improves upon the current Twitter search. Searching for a topic on Twitter returns a page of noisy results with no clear indication as to what the trending tweets for the topic are and is difficult to find exactly what the user is looking for. Our tool addresses the shortcomings of the existing Twitter search functionality by enabling users to explore deeper within their results. 
 
 Features include:
 - View list of tweets matching search terms
@@ -12,7 +12,7 @@ Features include:
 
 ## Installation and Usage
 - Install Ruby on Rails `http://rubyonrails.org/download`
-- Install PostgreSQL `http://www.postgresql.org/ or http://postgresapp.com/`
+- Install PostgreSQL `http://www.postgresql.org/` or `http://postgresapp.com/`
 - Clone this repository 
 - Run `bundle install`
 - Run 'rake db:create' followed by `rake db:migrate` to setup the database tables
