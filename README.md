@@ -1,11 +1,11 @@
 ## twXplorer
 
-twXplorer is a tool that improves upon the current Twitter search. Searching for a topic on Twitter returns a page of noisy results with no clear indication as to what the trending tweets for the topic are and is difficult to find exactly what the user is looking for. Our tool addresses the shortcomings of the existing Twitter search functionality by enabling users to explore deeper within their results. 
+twXplorer is a tool that improves upon the current Twitter search. Searching for a topic on Twitter returns a page of noisy results with no clear indication as to what the trending tweets for a topic are, making it difficult for a user to find exactly what he is looking for. Our tool addresses the shortcomings of the existing Twitter search functionality by enabling users to drill-down and explore deeper within their results. 
 
 Features include:
-- View list of tweets matching search terms
-- View a histogram of word counts of individual terms from tweets
-- Drill-down into search results
+- View a list of tweets matching given a search term
+- View a bar chart of word counts of individual terms from tweets
+- Drill-down into search results by clicking on bar chart
 - Exclude words from results
 - View previous search snapshots to see if topics have changed over time
 - Export results to a CSV file 
