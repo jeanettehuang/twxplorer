@@ -10,7 +10,7 @@
 
     <!-- Search bar -->
     <div id="search-bar-wrapper">
-      <div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div>
+      <a class="headertitle" href="/tweets/home"><div class="twxplorer-header twxplorer-detail header-normal">tw<div class="twxplorer-x-detail twxplorer-header">x</div>plorer</div></a>
       <div class="test" style="display: inline">
       <%= form_tag '/searchedtweets/index', :id => 'submit-search-form', :onsubmit => 'return validate(this)', :method => :get do %>
         <p>
@@ -25,7 +25,20 @@
     </div>
 
     <!-- Graph and tweets sidebar -->
-    <div id = "main-wrap">
-      <p class="ourteam">Coming soon!</p>
-    </div>
+      <p class="ourteam">the twXplorer team</p>
+      <div class="ourteam-container">
+        <img class="ourteam-pics" src="/images/allen.png"/><div class="ourteam-desc">Allen Zeng | Developer | <a href="http://www.linkedin.com/pub/allen-zeng/36/239/289" target="_blank"><img class="linkedin" src="/images/linkedin.png"></a><a href="http://www.github.com/allenz456" target="_blank"> <img class="github" src="/images/github.png"></a>
+          </div><br>
+      </div>
+
+      <div class="ourteam-container">
+        <img class="ourteam-pics" src="/images/jeanette.png"><div class="ourteam-desc">Jeanette Huang | Developer | <a href="http://www.linkedin.com/in/jeanettehuang" target="_blank"><img class="linkedin" src="/images/linkedin.png"></a>
+          <a href="http://www.github.com/jeanettehuang" target="_blank"><img class="github" src="/images/github.png"></a>
+          </div><br>
+      </div>
+
+      <div class="ourteam-container">
+        <img class="ourteam-pics" src="/images/miguel.png"><div class="ourteam-desc">Miguel Huerta | Journalist | <a href="http://www.linkedin.com/pub/miguel-huerta/a/ba3/787" target="_blank"> <img class="linkedin" src="/images/linkedin.png"></a></div>
+      </div>
+
 </body>

@@ -304,10 +304,48 @@ p.what-to-search {
 
 p.ourteam{
   font-family: bariol;
-  font-size: 45px;
+  font-size: 40px;
   margin-left: 550px;
   margin-top: 40px;
   height: 50px;
+}
+
+.ourteam-pics {
+  margin-left: 20px;
+  display: inline;
+  margin-bottom: 20px;
+  width: 150px;
+  margin-left: 470px;
+}
+
+.ourteam-desc {
+  display: inline;
+  margin-left: 30px;
+  position: relative;
+  font-family: bariol;
+  font-size: 20px;
+  height: 40px;
+}
+
+.linkedin {
+  height: 20px;
+}
+
+.github {
+  height: 20px;
+}
+
+.ourteam-container {
+  height: 180px !important;
+}
+
+a.headertitle {
+  color: #000000;
+}
+
+a.headertitle:hover {
+  color: #000000;
+  cursor:pointer;
 }
 
 /* Breadcrumbs
