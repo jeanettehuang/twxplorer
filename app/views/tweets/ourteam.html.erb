@@ -1,7 +1,6 @@
-<!-- Search Detail Page -->
+<!-- Our Team Page  -->
 
 <body>
-  <script src="http://code.highcharts.com/stock/highstock.js" type="text/javascript"></script>
 
     <!-- Header buttons -->
     <div id="header-btn-container">
@@ -15,15 +14,18 @@
       <div class="test" style="display: inline">
       <%= form_tag '/searchedtweets/index', :id => 'submit-search-form', :onsubmit => 'return validate(this)', :method => :get do %>
         <p>
-            <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail', :placeholder => 'search for tweets' %>
+            <%= text_field_tag :search, params[:search], :class => 'search-input search-input-detail' %>
             <%= submit_tag "", :name => nil, :id => 'submit-button', :class =>'btn btn-primary btn-large search-btn-detail' %>
         </p>
       <% end %>
       </div>
     </div>
+    
+    <div id="breadcrumbs-wrapper" style="height: 20px">
+    </div>
 
     <!-- Graph and tweets sidebar -->
     <div id = "main-wrap">
-      <%= render :partial => 'makedata' %>
+      <p class="ourteam">Coming soon!</p>
     </div>
 </body>

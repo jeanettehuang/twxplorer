@@ -23,42 +23,46 @@ src: url('type/HelveticaNeue-Light.ttf'),
 	 url('HelveticaNeue-Light.eot');
 }
 
+@font-face {
+  font-family: bariol;
+  src: url('type/bariol.ttf'),
+  url('bariol.eot');
+}
+
 /* Headers and landing page
 -------------------------------------------------- */
 
 .twxplorer-header {
-  font-family: OstrichRegular;
+  font-family: bariol;
 	font-size: 100px;
-	margin-top: 50px;
 	display: inline;
-	background-image:url('/images/twxplorer-logo.png');
+  /* background-image:url('/images/twxplorer-logo.png');
 	background-size:40px 60px;
   background-repeat:no-repeat;
-  background-position: 360px 0px;
+  background-position: 360px 0px; */ 
 }
 
 .twxplorer-x {
-  font-size: 130px !important;
+  color: #2f7ed8;
   background-image: none;
 }
 
 .twxplorer-detail {
   float: left;
-  font-size: 70px;
+  font-size: 50px;
   margin-top: 20px;
-  background-size: 30px 40px;
-  background-position: 250px 0px;
   height: 45px;
   margin-left: 20px;
 }
 
 .twxplorer-x-detail {
-  font-size: 90px;
+  font-size: 50px;
+  color: #2f7ed8;
   background-image: none;
 }
 
 .header-normal {
-  padding-right: 70px;
+  padding-right: 20px;
 }
 
 .landing {
@@ -88,7 +92,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
   border-radius: 3px;
   border: 10px solid #fcfcfc;
   background-color: #F8F8F8;
-  width: 85%;
+  width: 93%;
   margin-bottom: 10px;
   padding: 5px
 }
@@ -126,19 +130,18 @@ src: url('type/HelveticaNeue-Light.ttf'),
 -------------------------------------------------- */
 
 #search-bar-wrapper {
-  margin-top: 40px;
   background-color: #F8F8F8;
+  background-image:url('/images/blu_stripes.png');
   height: 70px;
-  padding-top: 10px;
 }
 
 .search-input {
-  font-family: HelveticaNeue-Light;
-  height: 32px !important;
+  font-family: bariol;
+  height: 25px !important;
   margin-top: 30px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  font-size: 20px !important;
+  border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  font-size: 18px !important;
 }
 
 .search-input-home {
@@ -147,13 +150,26 @@ src: url('type/HelveticaNeue-Light.ttf'),
 }
 
 .search-input-detail {
-  width: 300px;
-  margin-top: 10px;
+  width: 230px;
+  margin-top: 20px;
   margin-right: 20px;
 }
 
 .search-btn-detail {
-  margin-top: -2px;
+  margin-top: 10px;
+  border-radius: 0px;
+  width: 10px;
+  margin-left: -60px;
+  height: 35px;
+  background-image:url('/images/searchbutton.png');
+  background-repeat:no-repeat;
+  background-position: center;
+}
+
+#submit-button:hover {
+  background-image:url('/images/searchbutton.png');
+  background-repeat:no-repeat;
+  background-position: center;
 }
 
 
@@ -191,7 +207,7 @@ src: url('type/HelveticaNeue-Light.ttf'),
 
 .sidebar-headers {
   font-size: 25px;
-  font-family: HelveticaNeue-Light;
+  font-family: bariol;
   margin-top: 25px;
   margin-bottom: 30px;
   line-height: 30px;
@@ -262,6 +278,38 @@ p.tweetcount {
   font-size: 12px;
 }
 
+a.header-btn {
+  color: #ffffff;
+}
+
+.circleslides {
+  width: 400px;
+  margin-right: 35px;
+}
+
+#circlecontainer {
+  margin-left: 70px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+p.what-to-search {
+  font-family: bariol;
+  font-size: 45px;
+  left: 25%;
+  margin-top: 40px;
+  height: 50px;
+  position: relative;
+}
+
+p.ourteam{
+  font-family: bariol;
+  font-size: 45px;
+  margin-left: 550px;
+  margin-top: 40px;
+  height: 50px;
+}
+
 /* Breadcrumbs
 -------------------------------------------------- */
 #breadcrumbs-wrapper {
@@ -330,4 +378,24 @@ a.inserted-at {
 
 #snapshot-string {
   display: none;
+}
+
+/* Buttons
+-------------------------------------------------- */
+.header-btn {
+  display: inline;
+  float: right;
+  width: 110px;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 0px;
+  font-family: bariol;
+}
+
+#header-btn-container {
+}
+
+.dropdown-toggle {
+  font-family: bariol;
+  font-size: 15px;
 }

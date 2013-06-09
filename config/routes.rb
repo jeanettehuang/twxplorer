@@ -1,7 +1,9 @@
 TweetSuite::Application.routes.draw do
-  root :to => "tweets#index"
+  root :to => "tweets#home"
   get "tweets/index"
   get "searchedtweets/index"
+  get "tweets/ourteam"
+  get "tweets/home"
   
   get "searchedtweets/getvars"
   get "searchedtweets/getvars/:id" => "searchedtweets#getvars"
