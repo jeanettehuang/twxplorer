@@ -15,7 +15,7 @@ Features include:
 - Install PostgreSQL `http://www.postgresql.org/` or `http://postgresapp.com/`
 - Clone this repository 
 - Run `bundle install`
-- Run 'rake db:create' followed by `rake db:migrate` to setup the database tables
+- Run `rake db:create` followed by `rake db:migrate` to setup the database tables
 - Generate a Twitter API key and Oauth by creating a developer account on Twitter, include this information in `/lib/tasks/initsetup.rake`
 
 ## Starting the App
