@@ -8,7 +8,7 @@ Features include:
 - Drill-down into search results
 - Exclude words from results
 - View previous search snapshots to see if topics have changed over time
-- Export their results to a CSV file 
+- Export results to a CSV file 
 
 ## Installation and Usage
 - Install Ruby on Rails `http://rubyonrails.org/download`
