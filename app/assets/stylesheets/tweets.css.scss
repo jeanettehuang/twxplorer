@@ -75,6 +75,13 @@ src: url('type/HelveticaNeue-Light.ttf'),
   margin-top: 80px;
 }
 
+.filler-body {
+  height:500px;
+}
+
+.filler-body2 {
+  height:500px;
+}
 
 /* Tweet list
 -------------------------------------------------- */
@@ -307,7 +314,7 @@ p.what-to-search {
 p.ourteam{
   font-family: bariol;
   font-size: 40px;
-  margin-left: 550px;
+  text-align:center;
   margin-top: 25px;
   height: 50px;
 }
@@ -322,7 +329,7 @@ p.ourteam{
 
 .ourteam-desc {
   display: inline;
-  float: right;
+  float: left;
   width: 300px;
   margin-left: 30px;
   position: relative;
@@ -333,11 +340,11 @@ p.ourteam{
 }
 
 .second {
-  margin-top: 170px;
+  margin-top: 130px;
 }
 
 .third {
-  margin-top: 340px;
+  margin-top: 260px;
 }
 
 p.ourteam-name {
@@ -359,7 +366,7 @@ p.ourteam-name {
 
 .ourteam {
   min-height: 90%;
-  width: 500px;
+  width: 100%;
 }
 
 a.headertitle {
