@@ -315,8 +315,8 @@ p.ourteam{
   font-family: bariol;
   font-size: 40px;
   text-align:center;
-  margin-top: 25px;
-  height: 50px;
+  margin-top: 18px;
+  height: 40px;
 }
 
 .ourteam-pics {
@@ -324,27 +324,27 @@ p.ourteam{
   float: left;
   display: inline;
   margin-bottom: 20px;
-  width: 110px;
+  width: 120px;
 }
 
 .ourteam-desc {
   display: inline;
   float: left;
-  width: 300px;
+  width: 500px;
   margin-left: 30px;
   position: relative;
   font-family: bariol;
-  font-size: 18px;
+  font-size: 16px;
   height: 40px;
   margin-top: 10px;
 }
 
 .second {
-  margin-top: 130px;
+  margin-top: 150px;
 }
 
 .third {
-  margin-top: 260px;
+  margin-top: 290px;
 }
 
 p.ourteam-name {
@@ -361,7 +361,8 @@ p.ourteam-name {
 
 .ourteam-container {
   position: absolute;
-  margin-left: 480px;
+  left: 25%;
+  display: block;
 }
 
 .ourteam {
