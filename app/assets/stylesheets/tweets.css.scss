@@ -312,19 +312,34 @@ p.ourteam{
 
 .ourteam-pics {
   margin-left: 20px;
+  float: left;
   display: inline;
   margin-bottom: 20px;
   width: 150px;
-  margin-left: 470px;
 }
 
 .ourteam-desc {
   display: inline;
+  float: right;
+  width: 300px;
   margin-left: 30px;
   position: relative;
   font-family: bariol;
-  font-size: 20px;
+  font-size: 18px;
   height: 40px;
+  margin-top: 10px;
+}
+
+.second {
+  margin-top: 200px;
+}
+
+.third {
+  margin-top: 400px;
+}
+
+p.ourteam-name {
+  font-size: 30px;
 }
 
 .linkedin {
@@ -336,7 +351,13 @@ p.ourteam{
 }
 
 .ourteam-container {
-  height: 180px !important;
+  position: absolute;
+  margin-left: 480px;
+}
+
+.ourteam {
+  height: 500px;
+  width: 500px;
 }
 
 a.headertitle {
